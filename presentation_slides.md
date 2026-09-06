@@ -366,22 +366,15 @@ It is also highly interpretable because each coefficient represents the estimate
 ### Key Linear Regression Principle
 
 $$
-\boxed{
-\text{Feature Contributions}
-\rightarrow
-\text{Least-Squares Optimization}
-\rightarrow
-\text{Global Linear Relationship}
-}
+\boxed{\text{Feature Contributions} \rightarrow \text{Least-Squares Optimization} \rightarrow \text{Global Linear Relationship}}
 $$
 
 <div class="source-footer">Source: Gauss, 1809 — Theoria Motus; Hastie, Tibshirani & Friedman, 2009 — The Elements of Statistical Learning</div>
 
 ---
 
-genui{"learning_viz":{"type_id":"LEAST_SQUARE_REGRESSION"}}
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/linear_regression_plot.png)
+![bg right:45%](./lr.png)
 
 
 # LINEAR REGRESSION : MATHEMATICAL FORMULATION
@@ -393,12 +386,7 @@ For $p$ input features, the linear regression model is:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i
-=
-\beta_0+
-\sum_{j=1}^{p}\beta_jx_{ij}
-}
+\boxed{\hat y_i = \beta_0+ \sum_{j=1}^{p}\beta_jx_{ij}}
 $$
 
 </div>
@@ -420,12 +408,7 @@ Ordinary Least Squares estimates the coefficients by minimizing the sum of squar
 <div class="math-box">
 
 $$
-\boxed{
-\hat\beta
-=
-\arg\min_{\beta}
-\|y-X\beta\|_2^2
-}
+\boxed{\hat\beta = \arg\min_{\beta} \|y-X\beta\|_2^2}
 $$
 
 </div>
@@ -451,9 +434,7 @@ Taking the derivative of the least-squares objective with respect to $\beta$ and
 <div class="math-box">
 
 $$
-\boxed{
-X^TX\hat\beta=X^Ty
-}
+\boxed{X^TX\hat\beta=X^Ty}
 $$
 
 </div>
@@ -463,11 +444,7 @@ When $X^TX$ is nonsingular:
 <div class="math-box">
 
 $$
-\boxed{
-\hat\beta
-=
-(X^TX)^{-1}X^Ty
-}
+\boxed{\hat\beta = (X^TX)^{-1}X^Ty}
 $$
 
 </div>
@@ -489,12 +466,7 @@ is the point in the linear model space that minimizes the Euclidean distance to 
 <div class="math-box">
 
 $$
-\boxed{
-\hat y
-=
-\arg\min_{z\in Col(X)}
-\|y-z\|_2^2
-}
+\boxed{\hat y = \arg\min_{z\in Col(X)} \|y-z\|_2^2}
 $$
 
 </div>
@@ -532,13 +504,7 @@ The coefficient of determination is often used to summarize explained variation:
 <div class="math-box">
 
 $$
-\boxed{
-R^2
-=
-1-
-\frac{\sum_i(y_i-\hat y_i)^2}
-{\sum_i(y_i-\bar y)^2}
-}
+\boxed{R^2 = 1- \frac{\sum_i(y_i-\hat y_i)^2} {\sum_i(y_i-\bar y)^2}}
 $$
 
 </div>
@@ -552,13 +518,7 @@ For a new CPCM observation:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\hat\beta_0+
-\sum_{j=1}^{p}
-\hat\beta_jx_j
-}
+\boxed{\hat y(x) = \hat\beta_0+ \sum_{j=1}^{p} \hat\beta_jx_j}
 $$
 
 </div>
@@ -579,14 +539,7 @@ The prediction is therefore a weighted sum of the feature values plus the estima
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\hat\beta
-=
-\arg\min_\beta
-\|y-X\beta\|_2^2
-\quad\Longrightarrow\quad
-X^T(y-X\hat\beta)=0
-}
+\boxed{\hat\beta = \arg\min_\beta \|y-X\beta\|_2^2 \quad\Longrightarrow\quad X^T(y-X\hat\beta)=0}
 $$
 
 Linear Regression finds the **best-fitting global linear approximation** by making the residual vector orthogonal to the feature space.
@@ -658,22 +611,14 @@ However, KNN can struggle when the number of features is large or when the featu
 ### Key KNN Principle
 
 $$
-\boxed{
-\text{Feature-Space Similarity}
-\rightarrow
-k\text{ Nearest Observations}
-\rightarrow
-\text{Target Aggregation}
-\rightarrow
-\text{Prediction}
-}
+\boxed{\text{Feature-Space Similarity} \rightarrow k\text{ Nearest Observations} \rightarrow \text{Target Aggregation} \rightarrow \text{Prediction}}
 $$
 
 <div class="source-footer">Source: Cover & Hart, 1967 — Nearest Neighbor Pattern Classification, IEEE Transactions on Information Theory; Hastie, Tibshirani & Friedman, 2009 — The Elements of Statistical Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/knn_plot.png)
+![bg right:45%](./knn.png)
 
 # K-NEAREST NEIGHBORS : MATHEMATICAL FORMULATION
 
@@ -684,14 +629,7 @@ For a query point $x_q$ and training observation $x_i$, the Minkowski distance i
 <div class="math-box">
 
 $$
-\boxed{
-d(x_q,x_i)
-=
-\left(
-\sum_{j=1}^{p}
-|x_{qj}-x_{ij}|^r
-\right)^{1/r}
-}
+\boxed{d(x_q,x_i) = \left( \sum_{j=1}^{p} |x_{qj}-x_{ij}|^r \right)^{1/r}}
 $$
 
 </div>
@@ -699,14 +637,7 @@ $$
 For the commonly used Euclidean distance ($r=2$):
 
 $$
-\boxed{
-d(x_q,x_i)
-=
-\sqrt{
-\sum_{j=1}^{p}
-(x_{qj}-x_{ij})^2
-}
-}
+\boxed{d(x_q,x_i) = \sqrt{ \sum_{j=1}^{p} (x_{qj}-x_{ij})^2 }}
 $$
 
 The $k$ training observations with the smallest distances form the neighbourhood:
@@ -727,13 +658,7 @@ For uniform weighting:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x_q)
-=
-\frac{1}{k}
-\sum_{i\in\mathcal N_k(x_q)}
-y_i
-}
+\boxed{\hat y(x_q) = \frac{1}{k} \sum_{i\in\mathcal N_k(x_q)} y_i}
 $$
 
 </div>
@@ -757,17 +682,7 @@ leading to:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x_q)
-=
-\frac{
-\sum_{i\in\mathcal N_k(x_q)}
-w_i y_i
-}{
-\sum_{i\in\mathcal N_k(x_q)}
-w_i
-}
-}
+\boxed{\hat y(x_q) = \frac{ \sum_{i\in\mathcal N_k(x_q)} w_i y_i }{ \sum_{i\in\mathcal N_k(x_q)} w_i }}
 $$
 
 </div>
@@ -783,11 +698,7 @@ For standardization:
 <div class="math-box">
 
 $$
-\boxed{
-x_j'
-=
-\frac{x_j-\mu_j}{\sigma_j}
-}
+\boxed{x_j' = \frac{x_j-\mu_j}{\sigma_j}}
 $$
 
 </div>
@@ -858,13 +769,7 @@ For uniform KNN:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\frac{1}{k}
-\sum_{i\in\mathcal N_k(x)}
-y_i
-}
+\boxed{\hat y(x) = \frac{1}{k} \sum_{i\in\mathcal N_k(x)} y_i}
 $$
 
 </div>
@@ -874,17 +779,7 @@ For distance-weighted KNN:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\frac{
-\sum_{i\in\mathcal N_k(x)}
-w_i y_i
-}{
-\sum_{i\in\mathcal N_k(x)}
-w_i
-}
-}
+\boxed{\hat y(x) = \frac{ \sum_{i\in\mathcal N_k(x)} w_i y_i }{ \sum_{i\in\mathcal N_k(x)} w_i }}
 $$
 
 </div>
@@ -904,13 +799,7 @@ $$
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{Prediction}
-=
-\text{Local Target Average}
-\quad
-\text{over the nearest region of feature space}
-}
+\boxed{\text{Prediction} = \text{Local Target Average} \quad \text{over the nearest region of feature space}}
 $$
 
 KNN therefore makes **no explicit global assumption about the functional form** of the CPCM conductivity relationship. Instead, it assumes that observations that are close in the properly scaled feature space tend to have similar target values.
@@ -933,11 +822,7 @@ Unlike Ridge regression, which continuously shrinks coefficients toward zero, LA
 The objective balances data-fitting error against model sparsity:
 
 $$
-\boxed{
-\text{Squared Error}
-+
-\lambda\|\beta\|_1
-}
+\boxed{\text{Squared Error} + \lambda\|\beta\|_1}
 $$
 
 where $\lambda$ controls the strength of regularization.
@@ -963,9 +848,7 @@ CPCM datasets may contain **multiple correlated, redundant, or weakly informativ
 This is particularly useful when the research question includes:
 
 $$
-\boxed{
-\text{Which available descriptors contribute to a parsimonious linear model?}
-}
+\boxed{\text{Which available descriptors contribute to a parsimonious linear model?}}
 $$
 
 However, with strongly correlated predictors, LASSO may arbitrarily retain one variable while shrinking another correlated variable toward zero. Therefore, a zero coefficient should not automatically be interpreted as proof that the corresponding physical variable has no underlying influence.
@@ -996,22 +879,14 @@ However, with strongly correlated predictors, LASSO may arbitrarily retain one v
 ### Key LASSO Principle
 
 $$
-\boxed{
-\text{Linear Prediction}
-+
-L_1\text{ Shrinkage}
-\rightarrow
-\text{Sparse Coefficients}
-\rightarrow
-\text{Embedded Feature Selection}
-}
+\boxed{\text{Linear Prediction} + L_1\text{ Shrinkage} \rightarrow \text{Sparse Coefficients} \rightarrow \text{Embedded Feature Selection}}
 $$
 
 <div class="source-footer">Source: Tibshirani, 1996 — Regression Shrinkage and Selection via the Lasso, Journal of the Royal Statistical Society: Series B</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/lasso_plot.png)
+![bg right:45%](./lasso.png)
 
 # LASSO REGRESSION : MATHEMATICAL FORMULATION
 
@@ -1022,13 +897,7 @@ LASSO retains the linear regression structure:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i
-=
-\beta_0+
-\sum_{j=1}^{p}
-\beta_jx_{ij}
-}
+\boxed{\hat y_i = \beta_0+ \sum_{j=1}^{p} \beta_jx_{ij}}
 $$
 
 </div>
@@ -1042,17 +911,7 @@ The LASSO coefficients are obtained by minimizing:
 <div class="math-box">
 
 $$
-\boxed{
-\min_{\beta_0,\beta}
-\left[
-\frac{1}{2N}
-\sum_{i=1}^{N}
-(y_i-\beta_0-x_i^T\beta)^2
-+
-\lambda
-\sum_{j=1}^{p}|\beta_j|
-\right]
-}
+\boxed{\min_{\beta_0,\beta} \left[ \frac{1}{2N} \sum_{i=1}^{N} (y_i-\beta_0-x_i^T\beta)^2 + \lambda \sum_{j=1}^{p}|\beta_j| \right]}
 $$
 
 </div>
@@ -1062,9 +921,7 @@ The first term measures prediction error, while the second term penalizes the ab
 In scikit-learn terminology, the parameter is generally written as `alpha`:
 
 $$
-\boxed{
-\lambda\equiv\texttt{alpha}
-}
+\boxed{\lambda\equiv\texttt{alpha}}
 $$
 
 for the corresponding LASSO formulation.
@@ -1076,20 +933,13 @@ The penalized formulation can also be expressed as a constrained least-squares p
 <div class="math-box">
 
 $$
-\boxed{
-\min_{\beta_0,\beta}
-\sum_{i=1}^{N}
-(y_i-\beta_0-x_i^T\beta)^2
-}
+\boxed{\min_{\beta_0,\beta} \sum_{i=1}^{N} (y_i-\beta_0-x_i^T\beta)^2}
 $$
 
 subject to
 
 $$
-\boxed{
-\sum_{j=1}^{p}|\beta_j|
-\leq t
-}
+\boxed{\sum_{j=1}^{p}|\beta_j| \leq t}
 $$
 
 </div>
@@ -1113,13 +963,7 @@ The optimization therefore permits the solution to occur exactly at zero:
 <div class="math-box">
 
 $$
-\boxed{
-\lambda\uparrow
-\Rightarrow
-\text{stronger shrinkage}
-\Rightarrow
-\text{more coefficients can become }0
-}
+\boxed{\lambda\uparrow \Rightarrow \text{stronger shrinkage} \Rightarrow \text{more coefficients can become }0}
 $$
 
 </div>
@@ -1142,18 +986,7 @@ The resulting update has the form of a **soft-thresholding operation**:
 <div class="math-box">
 
 $$
-\boxed{
-\beta_j
-\leftarrow
-\frac{
-S\left(
-\frac1N x_j^T(y-X_{-j}\beta_{-j}),
-\lambda
-\right)
-}{
-\frac1N x_j^Tx_j
-}
-}
+\boxed{\beta_j \leftarrow \frac{ S\left( \frac1N x_j^T(y-X_{-j}\beta_{-j}), \lambda \right) }{ \frac1N x_j^Tx_j }}
 $$
 
 </div>
@@ -1221,14 +1054,7 @@ After optimization:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\hat\beta_0
-+
-\sum_{j=1}^{p}
-\hat\beta_jx_j
-}
+\boxed{\hat y(x) = \hat\beta_0 + \sum_{j=1}^{p} \hat\beta_jx_j}
 $$
 
 </div>
@@ -1238,14 +1064,7 @@ Because many $\hat\beta_j$ may equal zero, this can equivalently be written over
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\hat\beta_0
-+
-\sum_{j\in\mathcal A}
-\hat\beta_jx_j
-}
+\boxed{\hat y(x) = \hat\beta_0 + \sum_{j\in\mathcal A} \hat\beta_jx_j}
 $$
 
 </div>
@@ -1273,28 +1092,13 @@ $$
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\min_\beta
-\left[
-\text{Squared Error}
-+
-\lambda\|\beta\|_1
-\right]
-\quad\Longrightarrow\quad
-\text{Coefficient Shrinkage + Sparsity}
-}
+\boxed{\min_\beta \left[ \text{Squared Error} + \lambda\|\beta\|_1 \right] \quad\Longrightarrow\quad \text{Coefficient Shrinkage + Sparsity}}
 $$
 
 The defining distinction of LASSO is therefore:
 
 $$
-\boxed{
-L_1\text{ penalty}
-\rightarrow
-\text{exact zeros}
-\rightarrow
-\text{embedded feature selection}
-}
+\boxed{L_1\text{ penalty} \rightarrow \text{exact zeros} \rightarrow \text{embedded feature selection}}
 $$
 
 This makes LASSO particularly valuable as an **interpretable sparse baseline** alongside Ridge and nonlinear CPCM models.
@@ -1505,12 +1309,7 @@ This explains why some coefficients can become **exactly zero**.
 After optimization, the trained model predicts:
 
 $$
-\boxed{
-\hat{y}
-=
-\beta_0+
-\sum_{j=1}^{p}x_j\hat{\beta}_j
-}
+\boxed{\hat{y} = \beta_0+ \sum_{j=1}^{p}x_j\hat{\beta}_j}
 $$
 
 with some \(\hat{\beta}_j=0\) potentially removed from the effective predictive model.
@@ -1535,7 +1334,7 @@ with some \(\hat{\beta}_j=0\) potentially removed from the effective predictive 
 
 This makes Elastic Net particularly attractive when CPCM descriptors are **both numerous and correlated**.
 
-![bg right:45%](/home/tushar/.gemini/antigravity/scratch/elastic_net_plot.png)
+![bg right:45%](./elastic.png)
 
 <div class="source-footer">Sources: Zou & Hastie (2005), “Regularization and Variable Selection via the Elastic Net”; Hastie, Tibshirani & Friedman (2009), *The Elements of Statistical Learning*.</div>
 
@@ -1595,20 +1394,14 @@ This provides a useful **regularized linear baseline** for determining how much 
 ### Key Ridge Principle
 
 $$
-\boxed{
-\text{Prediction Error}
-+
-\lambda\|\beta\|_2^2
-\rightarrow
-\text{Stable Regularized Linear Model}
-}
+\boxed{\text{Prediction Error} + \lambda\|\beta\|_2^2 \rightarrow \text{Stable Regularized Linear Model}}
 $$
 
 <div class="source-footer">Sources: Hoerl & Kennard, 1970 — Technometrics; Hastie, Tibshirani & Friedman, 2009 — The Elements of Statistical Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/ridge_plot.png)
+![bg right:45%](./ridge.png)
 
 # RIDGE : MATHEMATICAL FORMULATION
 
@@ -1619,14 +1412,7 @@ Ridge minimizes the residual sum of squares while imposing an $L_2$ penalty on t
 <div class="math-box">
 
 $$
-\boxed{
-\min_{\beta}
-\left[
-\|y-X\beta\|_2^2
-+
-\lambda\|\beta\|_2^2
-\right]
-}
+\boxed{\min_{\beta} \left[ \|y-X\beta\|_2^2 + \lambda\|\beta\|_2^2 \right]}
 $$
 
 </div>
@@ -1666,11 +1452,7 @@ and therefore:
 <div class="math-box">
 
 $$
-\boxed{
-\hat{\beta}^{ridge}
-=
-(X^TX+\lambda I)^{-1}X^Ty
-}
+\boxed{\hat{\beta}^{ridge} = (X^TX+\lambda I)^{-1}X^Ty}
 $$
 
 </div>
@@ -1684,9 +1466,7 @@ For a new feature vector $x$:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)=x^T\hat{\beta}^{ridge}+\hat b
-}
+\boxed{\hat y(x)=x^T\hat{\beta}^{ridge}+\hat b}
 $$
 
 </div>
@@ -1707,11 +1487,7 @@ If the implementation centers the data and handles the intercept separately, the
 ### Key Mathematical Trade-off
 
 $$
-\boxed{
-\lambda=0
-\Rightarrow
-\text{OLS}
-}
+\boxed{\lambda=0 \Rightarrow \text{OLS}}
 $$
 
 while
@@ -1782,22 +1558,14 @@ However, PLS does **not "perfectly filter out experimental noise"**; rather, the
 ### Key PLS Principle
 
 $$
-\boxed{
-X
-\rightarrow
-\text{Latent Components}
-\rightarrow
-\text{Covariance with }Y
-\rightarrow
-\hat Y
-}
+\boxed{X \rightarrow \text{Latent Components} \rightarrow \text{Covariance with }Y \rightarrow \hat Y}
 $$
 
 <div class="source-footer">Sources: Wold, Sjöström & Eriksson, 2001 — Chemometrics and Intelligent Laboratory Systems; Geladi & Kowalski, 1986 — Analytica Chimica Acta</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/pls_plot.png)
+![bg right:45%](./pls.png)
 
 # PLS : MATHEMATICAL FORMULATION
 
@@ -1808,15 +1576,11 @@ PLS represents the predictor and response matrices using latent scores:
 <div class="math-box">
 
 $$
-\boxed{
-X=TP^T+E
-}
+\boxed{X=TP^T+E}
 $$
 
 $$
-\boxed{
-Y=UQ^T+F
-}
+\boxed{Y=UQ^T+F}
 $$
 
 </div>
@@ -1836,11 +1600,7 @@ where $w$ is chosen so that the resulting latent score $t$ has strong covariance
 Conceptually:
 
 $$
-\boxed{
-w
-\rightarrow
-\text{maximize covariance between }t=Xw\text{ and }Y
-}
+\boxed{w \rightarrow \text{maximize covariance between }t=Xw\text{ and }Y}
 $$
 
 After extracting a component, the corresponding information is removed through **deflation**, and subsequent components are extracted from the remaining variation.
@@ -1860,9 +1620,7 @@ A common compact representation is:
 <div class="math-box">
 
 $$
-\boxed{
-\hat Y=X\hat B_{PLS}
-}
+\boxed{\hat Y=X\hat B_{PLS}}
 $$
 
 </div>
@@ -1896,15 +1654,11 @@ Too few components may discard predictive information, whereas too many can redu
 ### Key Difference from PCA
 
 $$
-\boxed{
-\text{PCA: maximize variance in }X
-}
+\boxed{\text{PCA: maximize variance in }X}
 $$
 
 $$
-\boxed{
-\text{PLS: extract }X\text{ directions using covariance with }Y
-}
+\boxed{\text{PLS: extract }X\text{ directions using covariance with }Y}
 $$
 
 Therefore, PLS components are **supervised latent representations**, because the target information influences component extraction.
@@ -1972,22 +1726,14 @@ However, CatBoost's categorical-data advantages are less central if the present 
 ### Key CatBoost Principle
 
 $$
-\boxed{
-\text{Ordered Boosting}
-+
-\text{Symmetric Trees}
-+
-\text{Regularization}
-\rightarrow
-\text{Stable Nonlinear Regression}
-}
+\boxed{\text{Ordered Boosting} + \text{Symmetric Trees} + \text{Regularization} \rightarrow \text{Stable Nonlinear Regression}}
 $$
 
 <div class="source-footer">Source: Prokhorenkova et al., 2018 — CatBoost: unbiased boosting with categorical features, NeurIPS</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/catboost_plot.png)
+![bg right:45%](./catboost.png)
 
 # CATBOOST : MATHEMATICAL FORMULATION
 
@@ -1998,13 +1744,7 @@ CatBoost represents the prediction as an additive sequence of trees:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i^{(t)}
-=
-\hat y_i^{(t-1)}
-+
-\eta f_t(x_i)
-}
+\boxed{\hat y_i^{(t)} = \hat y_i^{(t-1)} + \eta f_t(x_i)}
 $$
 
 </div>
@@ -2014,15 +1754,7 @@ After $T$ boosting iterations:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i
-=
-\hat y_0
-+
-\eta
-\sum_{t=1}^{T}
-f_t(x_i)
-}
+\boxed{\hat y_i = \hat y_0 + \eta \sum_{t=1}^{T} f_t(x_i)}
 $$
 
 </div>
@@ -2036,13 +1768,7 @@ For thermal-conductivity regression, CatBoost can minimize the Root Mean Squared
 <div class="math-box">
 
 $$
-\boxed{
-\mathcal L
-=
-\frac{1}{N}
-\sum_{i=1}^{N}
-(y_i-\hat y_i)^2
-}
+\boxed{\mathcal L = \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat y_i)^2}
 $$
 
 </div>
@@ -2065,11 +1791,7 @@ For squared-error loss:
 <div class="math-box">
 
 $$
-\boxed{
-g_i
-=
-2(\hat y_i-y_i)
-}
+\boxed{g_i = 2(\hat y_i-y_i)}
 $$
 
 </div>
@@ -2093,13 +1815,7 @@ A leaf can consequently be represented by a binary code:
 <div class="math-box">
 
 $$
-\boxed{
-q(x)
-=
-\sum_{d=1}^{D}
-2^{d-1}
-I\left[s_d(x)=1\right]
-}
+\boxed{q(x) = \sum_{d=1}^{D} 2^{d-1} I\left[s_d(x)=1\right]}
 $$
 
 </div>
@@ -2136,16 +1852,7 @@ Differentiating with respect to $w_j$ and setting the derivative to zero gives t
 <div class="math-box">
 
 $$
-\boxed{
-w_j^*
-=
-\frac{
-\sum_{i\in I_j}
-(y_i-\hat y_i^{old})
-}{
-|I_j|+\lambda
-}
-}
+\boxed{w_j^* = \frac{ \sum_{i\in I_j} (y_i-\hat y_i^{old}) }{ |I_j|+\lambda }}
 $$
 
 </div>
@@ -2167,11 +1874,7 @@ the ordered estimate associated with observation $\sigma(i)$ is constructed usin
 <div class="math-box">
 
 $$
-\boxed{
-\text{Training information for }\sigma(i)
-\leftarrow
-\{\sigma(1),\ldots,\sigma(i-1)\}
-}
+\boxed{\text{Training information for }\sigma(i) \leftarrow \{\sigma(1),\ldots,\sigma(i-1)\}}
 $$
 
 </div>
@@ -2187,15 +1890,7 @@ The final CatBoost regressor is therefore:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\hat y_0
-+
-\eta
-\sum_{t=1}^{T}
-f_t(x)
-}
+\boxed{\hat y(x) = \hat y_0 + \eta \sum_{t=1}^{T} f_t(x)}
 $$
 
 </div>
@@ -2218,19 +1913,7 @@ Each tree contributes a small correction to the existing prediction, and the cum
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{Current Prediction}
-\rightarrow
-\text{Ordered Gradient Information}
-\rightarrow
-\text{Symmetric Tree}
-\rightarrow
-\text{Regularized Leaf Values}
-\rightarrow
-\text{Shrinkage}
-\rightarrow
-\text{Updated Prediction}
-}
+\boxed{\text{Current Prediction} \rightarrow \text{Ordered Gradient Information} \rightarrow \text{Symmetric Tree} \rightarrow \text{Regularized Leaf Values} \rightarrow \text{Shrinkage} \rightarrow \text{Updated Prediction}}
 $$
 
 The distinguishing mathematical idea is that CatBoost combines **stage-wise gradient boosting with ordered training information and symmetric tree structures**, providing a different boosting architecture from XGBoost and LightGBM.
@@ -2256,9 +1939,7 @@ $$
 NGBoost learns:
 
 $$
-\boxed{
-x\rightarrow P(y\mid x;\theta(x))
-}
+\boxed{x\rightarrow P(y\mid x;\theta(x))}
 $$
 
 where $\theta(x)$ represents the parameters of the predicted probability distribution, such as the **mean and standard deviation** of a Normal distribution.
@@ -2324,22 +2005,14 @@ However, the predicted uncertainty should be evaluated for **calibration**, not 
 ### Key NGBoost Principle
 
 $$
-\boxed{
-\text{Gradient Boosting}
-+
-\text{Probability Distribution}
-+
-\text{Natural Gradient}
-\rightarrow
-\text{Probabilistic Regression}
-}
+\boxed{\text{Gradient Boosting} + \text{Probability Distribution} + \text{Natural Gradient} \rightarrow \text{Probabilistic Regression}}
 $$
 
 <div class="source-footer">Source: Duan et al., 2020 — NGBoost: Natural Gradient Boosting for Probabilistic Prediction, ICML</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/ngboost_plot.png)
+![bg right:45%](./ngboost.png)
 
 # NGBOOST : MATHEMATICAL FORMULATION
 
@@ -2350,11 +2023,7 @@ Let the conditional distribution of the target be:
 <div class="math-box">
 
 $$
-\boxed{
-Y\mid X=x
-\sim
-P\left(y;\theta(x)\right)
-}
+\boxed{Y\mid X=x \sim P\left(y;\theta(x)\right)}
 $$
 
 </div>
@@ -2389,11 +2058,7 @@ NGBoost trains the conditional distribution using a **proper scoring rule**. For
 <div class="math-box">
 
 $$
-\boxed{
-S(y,\theta)
-=
--\log p(y\mid\theta)
-}
+\boxed{S(y,\theta) = -\log p(y\mid\theta)}
 $$
 
 </div>
@@ -2417,15 +2082,7 @@ Therefore, the negative log-likelihood is:
 <div class="math-box">
 
 $$
-\boxed{
-S(y,\mu,\sigma)
-=
-\log\sigma
-+
-\frac{(y-\mu)^2}{2\sigma^2}
-+
-\frac12\log(2\pi)
-}
+\boxed{S(y,\mu,\sigma) = \log\sigma + \frac{(y-\mu)^2}{2\sigma^2} + \frac12\log(2\pi)}
 $$
 
 </div>
@@ -2483,12 +2140,7 @@ Ordinary gradient descent depends on the parameterization of the distribution. N
 <div class="math-box">
 
 $$
-\boxed{
-\widetilde{\nabla}_\rho S
-=
-I(\rho)^{-1}
-\nabla_\rho S
-}
+\boxed{\widetilde{\nabla}_\rho S = I(\rho)^{-1} \nabla_\rho S}
 $$
 
 </div>
@@ -2498,15 +2150,7 @@ where $I(\rho)$ is the Fisher information matrix:
 <div class="math-box">
 
 $$
-\boxed{
-I(\rho)
-=
-\mathbb E
-\left[
-\nabla_\rho S
-\nabla_\rho S^T
-\right]
-}
+\boxed{I(\rho) = \mathbb E \left[ \nabla_\rho S \nabla_\rho S^T \right]}
 $$
 
 </div>
@@ -2522,13 +2166,7 @@ The distribution parameters are then updated as:
 <div class="math-box">
 
 $$
-\boxed{
-\rho^{(m)}(x)
-=
-\rho^{(m-1)}(x)
-+
-\eta f_m(x)
-}
+\boxed{\rho^{(m)}(x) = \rho^{(m-1)}(x) + \eta f_m(x)}
 $$
 
 </div>
@@ -2544,15 +2182,7 @@ After $M$ boosting iterations:
 <div class="math-box">
 
 $$
-\boxed{
-\rho(x)
-=
-\rho^{(0)}
-+
-\eta
-\sum_{m=1}^{M}
-f_m(x)
-}
+\boxed{\rho(x) = \rho^{(0)} + \eta \sum_{m=1}^{M} f_m(x)}
 $$
 
 </div>
@@ -2560,15 +2190,7 @@ $$
 For a Normal distribution:
 
 $$
-\boxed{
-\hat Y\mid X=x
-\sim
-\mathcal N
-\left(
-\hat\mu(x),
-\hat\sigma^2(x)
-\right)
-}
+\boxed{\hat Y\mid X=x \sim \mathcal N \left( \hat\mu(x), \hat\sigma^2(x) \right)}
 $$
 
 The point prediction can therefore be taken as:
@@ -2576,9 +2198,7 @@ The point prediction can therefore be taken as:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)=\hat\mu(x)
-}
+\boxed{\hat y(x)=\hat\mu(x)}
 $$
 
 </div>
@@ -2592,11 +2212,7 @@ For an approximately Gaussian predictive distribution, an approximate $95%$ pred
 <div class="math-box">
 
 $$
-\boxed{
-\hat\mu(x)
-\pm
-1.96\,\hat\sigma(x)
-}
+\boxed{\hat\mu(x) \pm 1.96\,\hat\sigma(x)}
 $$
 
 </div>
@@ -2619,39 +2235,19 @@ This gives NGBoost an important advantage over conventional point-prediction mod
 ### Key Mathematical Insight
 
 $$
-\boxed{
-X
-\rightarrow
-\theta(x)
-\rightarrow
-\text{Score Gradient}
-\rightarrow
-I(\theta)^{-1}\nabla S
-\rightarrow
-\text{Tree Update}
-\rightarrow
-\theta(x)
-}
+\boxed{X \rightarrow \theta(x) \rightarrow \text{Score Gradient} \rightarrow I(\theta)^{-1}\nabla S \rightarrow \text{Tree Update} \rightarrow \theta(x)}
 $$
 
 The central mathematical distinction is:
 
 $$
-\boxed{
-\text{Standard GBM}
-\rightarrow
-\text{Predict Target}
-}
+\boxed{\text{Standard GBM} \rightarrow \text{Predict Target}}
 $$
 
 whereas:
 
 $$
-\boxed{
-\text{NGBoost}
-\rightarrow
-\text{Predict Distribution Parameters}
-}
+\boxed{\text{NGBoost} \rightarrow \text{Predict Distribution Parameters}}
 $$
 
 Therefore, NGBoost transforms boosting from **point estimation into probabilistic regression**, making it especially valuable when uncertainty information is important alongside thermal-conductivity prediction.
@@ -2754,9 +2350,7 @@ Huber Regression can therefore provide:
 Huber Regressor assumes a linear prediction function:
 
 $$
-\boxed{
-\hat y_i=\beta_0+x_i^T\beta
-}
+\boxed{\hat y_i=\beta_0+x_i^T\beta}
 $$
 
 where \(x_i\) is the feature vector for observation \(i\).
@@ -2772,15 +2366,7 @@ $$
 The central mathematical component is the **Huber loss**:
 
 $$
-\boxed{
-L_\epsilon(r)=
-\begin{cases}
-\frac{1}{2}r^2,
-& |r|\leq\epsilon\\[6pt]
-\epsilon|r|-\frac{1}{2}\epsilon^2,
-& |r|>\epsilon
-\end{cases}
-}
+\boxed{L_\epsilon(r)= \begin{cases} \frac{1}{2}r^2, & |r|\leq\epsilon\\[6pt] \epsilon|r|-\frac{1}{2}\epsilon^2, & |r|>\epsilon \end{cases}}
 $$
 
 Therefore:
@@ -2810,17 +2396,7 @@ The loss grows only linearly instead of quadratically.
 The regression parameters are estimated by minimizing the aggregate Huber loss together with L2 regularization:
 
 $$
-\boxed{
-\min_{\beta_0,\beta}
-\frac{1}{N}
-\sum_{i=1}^{N}
-L_\epsilon
-\left(
-y_i-\beta_0-x_i^T\beta
-\right)
-+
-\frac{\alpha}{2}\|\beta\|_2^2
-}
+\boxed{\min_{\beta_0,\beta} \frac{1}{N} \sum_{i=1}^{N} L_\epsilon \left( y_i-\beta_0-x_i^T\beta \right) + \frac{\alpha}{2}\|\beta\|_2^2}
 $$
 
 The regularization term is:
@@ -2920,24 +2496,13 @@ Thus, a large residual receives a smaller effective weight.
 After optimization:
 
 $$
-\boxed{
-\hat y_*
-=
-\hat\beta_0+
-x_*^T\hat\beta
-}
+\boxed{\hat y_* = \hat\beta_0+ x_*^T\hat\beta}
 $$
 
 or:
 
 $$
-\boxed{
-\hat y_*
-=
-\hat\beta_0+
-\sum_{j=1}^{p}
-x_{*j}\hat\beta_j
-}
+\boxed{\hat y_* = \hat\beta_0+ \sum_{j=1}^{p} x_{*j}\hat\beta_j}
 $$
 
 ### Mathematical Interpretation
@@ -2958,14 +2523,10 @@ $$
 > **Huber Regression limits the influence of large residuals by changing the loss growth from quadratic to linear.**
 >
 > $$
-> \boxed{
-> \text{Small error}\rightarrow OLS\text{-like}
-> \qquad
-> \text{Large error}\rightarrow \text{robust linear penalty}
-> }
+> \boxed{> \text{Small error}\rightarrow OLS\text{-like} > \qquad > \text{Large error}\rightarrow \text{robust linear penalty} >}
 > $$
 
-![bg right:45%](/home/tushar/.gemini/antigravity/scratch/huber_regressor_plot.png)
+![bg right:45%](./huber.png)
 
 <div class="source-footer">Sources: Huber (1964), “Robust Estimation of a Location Parameter,” <i>Annals of Mathematical Statistics</i>; Huber & Ronchetti (2009), <i>Robust Statistics</i>; scikit-learn documentation, <i>HuberRegressor</i>.</div>
 
@@ -3111,14 +2672,7 @@ $$
 Therefore:
 
 $$
-\boxed{
-\mathbf y\sim
-\mathcal N
-\left(
-\mathbf m,\,
-K+\sigma_n^2I
-\right)
-}
+\boxed{\mathbf y\sim \mathcal N \left( \mathbf m,\, K+\sigma_n^2I \right)}
 $$
 
 Define:
@@ -3132,15 +2686,7 @@ $$
 A common choice is the **Radial Basis Function (RBF) / Squared Exponential kernel**:
 
 $$
-\boxed{
-k(x,x')
-=
-\sigma_f^2
-\exp
-\left(
--\frac{\|x-x'\|^2}{2\ell^2}
-\right)
-}
+\boxed{k(x,x') = \sigma_f^2 \exp \left( -\frac{\|x-x'\|^2}{2\ell^2} \right)}
 $$
 
 where:
@@ -3156,14 +2702,7 @@ The kernel therefore determines how strongly one CPCM observation influences ano
 GPR commonly learns kernel hyperparameters by maximizing the **log marginal likelihood**:
 
 $$
-\boxed{
-\log p(\mathbf y|X,\theta)
-=
--\frac12
-\mathbf y^T K_y^{-1}\mathbf y
--\frac12\log|K_y|
--\frac{N}{2}\log(2\pi)
-}
+\boxed{\log p(\mathbf y|X,\theta) = -\frac12 \mathbf y^T K_y^{-1}\mathbf y -\frac12\log|K_y| -\frac{N}{2}\log(2\pi)}
 $$
 
 The three terms represent:
@@ -3206,26 +2745,13 @@ $$
 The predictive mean is:
 
 $$
-\boxed{
-\mu_*
-=
-m(x_*)
-+
-k_*^TK_y^{-1}
-(\mathbf y-\mathbf m)
-}
+\boxed{\mu_* = m(x_*) + k_*^TK_y^{-1} (\mathbf y-\mathbf m)}
 $$
 
 The predictive latent-function variance is:
 
 $$
-\boxed{
-\sigma_*^2
-=
-k_{**}
--
-k_*^TK_y^{-1}k_*
-}
+\boxed{\sigma_*^2 = k_{**} - k_*^TK_y^{-1}k_*}
 $$
 
 If observation noise is included in the prediction:
@@ -3239,11 +2765,7 @@ $$
 Hence:
 
 $$
-\boxed{
-y_*|x_*,X,y
-\sim
-\mathcal N(\mu_*,\sigma_{y_*}^2)
-}
+\boxed{y_*|x_*,X,y \sim \mathcal N(\mu_*,\sigma_{y_*}^2)}
 $$
 
 | Symbol | Meaning |
@@ -3284,7 +2806,7 @@ This makes GPR especially attractive for **small-to-moderate experimental datase
 > **GPR prediction is a kernel-weighted Bayesian update.**
 > Training observations that are highly correlated with a new CPCM input contribute more strongly to its posterior prediction, while the predictive variance reflects how well the new input is supported by the observed data.
 
-![bg right:45%](/home/tushar/.gemini/antigravity/scratch/gaussian_process_plot.png)
+![bg right:45%](./gpr.png)
 
 <div class="source-footer">Sources: Rasmussen & Williams (2006), <i>Gaussian Processes for Machine Learning</i>; Williams & Rasmussen (1996), “Gaussian Processes for Regression,” <i>Advances in Neural Information Processing Systems</i>.</div>
 
@@ -3340,20 +2862,14 @@ However, a single unrestricted tree can become highly complex and sensitive to t
 ### Key Decision-Tree Principle
 
 $$
-\boxed{
-\text{Recursive Feature–Threshold Splitting}
-\rightarrow
-\text{Homogeneous Leaf Regions}
-\rightarrow
-\text{Piecewise-Constant Prediction}
-}
+\boxed{\text{Recursive Feature–Threshold Splitting} \rightarrow \text{Homogeneous Leaf Regions} \rightarrow \text{Piecewise-Constant Prediction}}
 $$
 
 <div class="source-footer">Sources: Breiman et al., 1984 — Classification and Regression Trees; Loh, 2011 — WIREs Data Mining and Knowledge Discovery</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/tree_plot.png)
+![bg right:45%](./dt.png)
 
 # DECISION TREE : MATHEMATICAL FORMULATION
 
@@ -3362,12 +2878,7 @@ $$
 For a node $m$ containing $N_m$ observations, the optimal constant prediction is the mean target:
 
 $$
-\boxed{
-\hat c_m
-=
-\frac{1}{N_m}
-\sum_{i\in R_m}y_i
-}
+\boxed{\hat c_m = \frac{1}{N_m} \sum_{i\in R_m}y_i}
 $$
 
 The squared-error impurity of the node is:
@@ -3399,16 +2910,7 @@ The selected split minimizes the weighted child-node impurity:
 <div class="math-box">
 
 $$
-\boxed{
-\theta^*
-=
-\arg\min_{\theta}
-\left[
-\frac{N_L}{N_m}I(L)
-+
-\frac{N_R}{N_m}I(R)
-\right]
-}
+\boxed{\theta^* = \arg\min_{\theta} \left[ \frac{N_L}{N_m}I(L) + \frac{N_R}{N_m}I(R) \right]}
 $$
 
 </div>
@@ -3418,15 +2920,7 @@ Equivalently, the algorithm can maximize the impurity reduction:
 <div class="math-box">
 
 $$
-\boxed{
-\Delta I
-=
-I(m)
--
-\frac{N_L}{N_m}I(L)
--
-\frac{N_R}{N_m}I(R)
-}
+\boxed{\Delta I = I(m) - \frac{N_L}{N_m}I(L) - \frac{N_R}{N_m}I(R)}
 $$
 
 </div>
@@ -3452,13 +2946,7 @@ A trained regression tree partitions the feature space into terminal regions $R_
 <div class="math-box">
 
 $$
-\boxed{
-\hat f(x)
-=
-\sum_{m=1}^{M}
-\hat c_m
-I(x\in R_m)
-}
+\boxed{\hat f(x) = \sum_{m=1}^{M} \hat c_m I(x\in R_m)}
 $$
 
 </div>
@@ -3488,16 +2976,7 @@ Thus, the prediction is the **mean training target of the corresponding leaf**.
 ### Key Mathematical Principle
 
 $$
-\boxed{
-\text{Choose split}
-=
-\arg\max_{\theta}
-\left(
-\text{Parent Impurity}
--
-\text{Weighted Child Impurity}
-\right)
-}
+\boxed{\text{Choose split} = \arg\max_{\theta} \left( \text{Parent Impurity} - \text{Weighted Child Impurity} \right)}
 $$
 
 Therefore, the Decision Tree learns a **hierarchical piecewise-constant approximation** of the relationship between the composite-PCM descriptors and thermal conductivity.
@@ -3554,20 +3033,14 @@ Random Forest addresses this limitation by averaging many diverse trees. Bootstr
 ### Key Random-Forest Principle
 
 $$
-\boxed{
-\text{Many Diverse Trees}
-+
-\text{Prediction Averaging}
-\rightarrow
-\text{Reduced Variance}
-}
+\boxed{\text{Many Diverse Trees} + \text{Prediction Averaging} \rightarrow \text{Reduced Variance}}
 $$
 
 <div class="source-footer">Source: Breiman, 2001 — Machine Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/rf_plot.png)
+![bg right:45%](./rf.png)
 
 # RANDOM FOREST : MATHEMATICAL FORMULATION
 
@@ -3590,12 +3063,7 @@ The final Random Forest regression prediction is the arithmetic mean of the indi
 <div class="math-box">
 
 $$
-\boxed{
-\hat f_{RF}(x)
-=
-\frac{1}{B}
-\sum_{b=1}^{B}T_b(x)
-}
+\boxed{\hat f_{RF}(x) = \frac{1}{B} \sum_{b=1}^{B}T_b(x)}
 $$
 
 </div>
@@ -3609,15 +3077,7 @@ For identically distributed trees with variance $\sigma^2$ and pairwise correlat
 <div class="math-box">
 
 $$
-\boxed{
-\operatorname{Var}
-\left[
-\frac{1}{B}\sum_{b=1}^{B}T_b
-\right]
-=
-\rho\sigma^2+
-\frac{1-\rho}{B}\sigma^2
-}
+\boxed{\operatorname{Var} \left[ \frac{1}{B}\sum_{b=1}^{B}T_b \right] = \rho\sigma^2+ \frac{1-\rho}{B}\sigma^2}
 $$
 
 </div>
@@ -3671,15 +3131,7 @@ The individual regression trees use a split criterion based on reduction in squa
 Instead:
 
 $$
-\boxed{
-\text{Bootstrap + Random Feature Selection}
-\rightarrow
-\text{Diverse Trees}
-\rightarrow
-\text{Averaging}
-\rightarrow
-\text{Variance Reduction}
-}
+\boxed{\text{Bootstrap + Random Feature Selection} \rightarrow \text{Diverse Trees} \rightarrow \text{Averaging} \rightarrow \text{Variance Reduction}}
 $$
 
 ### Mathematical Interpretation
@@ -3696,12 +3148,7 @@ $$
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{RF variance}
-\approx
-\rho\sigma^2+
-\frac{1-\rho}{B}\sigma^2
-}
+\boxed{\text{RF variance} \approx \rho\sigma^2+ \frac{1-\rho}{B}\sigma^2}
 $$
 
 Hence, Random Forest improves stability through **two complementary mechanisms**:
@@ -3767,22 +3214,14 @@ The additional randomization produces diverse tree structures and reduces depend
 ### Key ExtraTrees Principle
 
 $$
-\boxed{
-\text{Random Features}
-+
-\text{Random Thresholds}
-+
-\text{Ensemble Averaging}
-\rightarrow
-\text{Reduced Variance}
-}
+\boxed{\text{Random Features} + \text{Random Thresholds} + \text{Ensemble Averaging} \rightarrow \text{Reduced Variance}}
 $$
 
 <div class="source-footer">Source: Geurts, Ernst & Wehenkel, 2006 — Machine Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/extra_trees_plot.png)
+![bg right:45%](./et.png)
 
 # EXTRA TREES : MATHEMATICAL FORMULATION
 
@@ -3793,14 +3232,7 @@ Consider a node containing observations $S$. For a randomly selected feature $X_
 <div class="math-box">
 
 $$
-\boxed{
-a_{j}\sim
-\operatorname{Uniform}
-\left(
-\min_{x\in S}X_j(x),
-\max_{x\in S}X_j(x)
-\right)
-}
+\boxed{a_{j}\sim \operatorname{Uniform} \left( \min_{x\in S}X_j(x), \max_{x\in S}X_j(x) \right)}
 $$
 
 </div>
@@ -3830,12 +3262,7 @@ From the randomly generated candidate splits $\Theta_S$, the selected split is:
 <div class="math-box">
 
 $$
-\boxed{
-\theta^*
-=
-\arg\max_{\theta\in\Theta_S}
-\Delta I(\theta)
-}
+\boxed{\theta^* = \arg\max_{\theta\in\Theta_S} \Delta I(\theta)}
 $$
 
 </div>
@@ -3865,13 +3292,7 @@ For regression, ExtraTrees combines the predictions of the individual trees by a
 <div class="math-box">
 
 $$
-\boxed{
-\hat f_{ET}(x)
-=
-\frac{1}{M}
-\sum_{m=1}^{M}
-T_m(x;\theta_m)
-}
+\boxed{\hat f_{ET}(x) = \frac{1}{M} \sum_{m=1}^{M} T_m(x;\theta_m)}
 $$
 
 </div>
@@ -3914,15 +3335,7 @@ so the trees use the complete training set, while random feature and threshold s
 ExtraTrees introduces randomness **before** split selection:
 
 $$
-\boxed{
-\text{Random Candidate Generation}
-\rightarrow
-\text{Criterion-Based Selection}
-\rightarrow
-\text{Randomized Trees}
-\rightarrow
-\text{Averaging}
-}
+\boxed{\text{Random Candidate Generation} \rightarrow \text{Criterion-Based Selection} \rightarrow \text{Randomized Trees} \rightarrow \text{Averaging}}
 $$
 
 The objective is not to make each individual tree optimal. Instead, **diversity among trees combined with ensemble averaging** is used to obtain a stable nonlinear predictor.
@@ -4002,20 +3415,14 @@ This makes it useful for modelling complex nonlinear relationships where a singl
 ### Key Gradient-Boosting Principle
 
 $$
-\boxed{
-\text{Current Model}
-+
-\text{Gradient-Based Correction}
-\rightarrow
-\text{Improved Model}
-}
+\boxed{\text{Current Model} + \text{Gradient-Based Correction} \rightarrow \text{Improved Model}}
 $$
 
 <div class="source-footer">Source: Friedman, 2001 — The Annals of Statistics</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/gbm_plot.png)
+![bg right:45%](./gb.png)
 
 # GRADIENT BOOSTING : MATHEMATICAL FORMULATION
 
@@ -4026,14 +3433,7 @@ Gradient Boosting represents the prediction function as a sum of weak learners:
 <div class="math-box">
 
 $$
-\boxed{
-F_M(x)
-=
-F_0(x)
-+
-\sum_{m=1}^{M}
-\nu\gamma_mh_m(x)
-}
+\boxed{F_M(x) = F_0(x) + \sum_{m=1}^{M} \nu\gamma_mh_m(x)}
 $$
 
 </div>
@@ -4045,11 +3445,7 @@ where each $h_m(x)$ is a regression tree added sequentially to improve the curre
 The objective is to minimize the empirical loss:
 
 $$
-\boxed{
-\min_F
-\sum_{i=1}^{n}
-L(y_i,F(x_i))
-}
+\boxed{\min_F \sum_{i=1}^{n} L(y_i,F(x_i))}
 $$
 
 where $L$ is a differentiable loss function.
@@ -4068,11 +3464,7 @@ and the negative gradient becomes the ordinary residual:
 <div class="math-box">
 
 $$
-\boxed{
-r_{im}
-=
-y_i-F_{m-1}(x_i)
-}
+\boxed{r_{im} = y_i-F_{m-1}(x_i)}
 $$
 
 </div>
@@ -4086,16 +3478,7 @@ At boosting iteration $m$, the pseudo-residual is:
 <div class="math-box">
 
 $$
-\boxed{
-r_{im}
-=
--
-\left[
-\frac{\partial L(y_i,F(x_i))}
-{\partial F(x_i)}
-\right]_
-{F=F_{m-1}}
-}
+\boxed{r_{im} = - \left[ \frac{\partial L(y_i,F(x_i))} {\partial F(x_i)} \right]_ {F=F_{m-1}}}
 $$
 
 </div>
@@ -4107,19 +3490,7 @@ The optimal multiplier is then determined by:
 <div class="math-box">
 
 $$
-\boxed{
-\gamma_m
-=
-\arg\min_{\gamma}
-\sum_{i=1}^{n}
-L
-\left(
-y_i,
-F_{m-1}(x_i)
-+
-\gamma h_m(x_i)
-\right)
-}
+\boxed{\gamma_m = \arg\min_{\gamma} \sum_{i=1}^{n} L \left( y_i, F_{m-1}(x_i) + \gamma h_m(x_i) \right)}
 $$
 
 </div>
@@ -4129,13 +3500,7 @@ $$
 The new learner is incorporated using the shrinkage parameter $\nu$:
 
 $$
-\boxed{
-F_m(x)
-=
-F_{m-1}(x)
-+
-\nu\gamma_mh_m(x)
-}
+\boxed{F_m(x) = F_{m-1}(x) + \nu\gamma_mh_m(x)}
 $$
 
 where typically:
@@ -4153,14 +3518,7 @@ After $M$ boosting stages:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-F_0(x)
-+
-\sum_{m=1}^{M}
-\nu\gamma_mh_m(x)
-}
+\boxed{\hat y(x) = F_0(x) + \sum_{m=1}^{M} \nu\gamma_mh_m(x)}
 $$
 
 </div>
@@ -4189,15 +3547,7 @@ $$
 Gradient Boosting performs **gradient descent in function space**:
 
 $$
-\boxed{
-\text{Negative Gradient}
-\rightarrow
-\text{New Tree}
-\rightarrow
-\text{Step Size}
-\rightarrow
-\text{Additive Update}
-}
+\boxed{\text{Negative Gradient} \rightarrow \text{New Tree} \rightarrow \text{Step Size} \rightarrow \text{Additive Update}}
 $$
 
 Therefore, unlike Random Forest's independent averaging, Gradient Boosting creates a **sequential correction process**, where every new tree is specifically trained to improve the current ensemble.
@@ -4268,20 +3618,14 @@ For the present problem, this provides a powerful nonlinear modelling framework 
 ### Key XGBoost Principle
 
 $$
-\boxed{
-\text{Gradient + Hessian}
-+
-\text{Regularized Tree Growth}
-\rightarrow
-\text{Sequential Nonlinear Prediction}
-}
+\boxed{\text{Gradient + Hessian} + \text{Regularized Tree Growth} \rightarrow \text{Sequential Nonlinear Prediction}}
 $$
 
 <div class="source-footer">Source: Chen & Guestrin, 2016 — Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/xgboost_plot.png)
+![bg right:45%](./xgb.png)
 
 # XGBOOST : MATHEMATICAL FORMULATION
 
@@ -4292,11 +3636,7 @@ XGBoost represents the final prediction as an additive ensemble of $K$ regressio
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i
-=
-\sum_{k=1}^{K}f_k(x_i)
-}
+\boxed{\hat y_i = \sum_{k=1}^{K}f_k(x_i)}
 $$
 
 </div>
@@ -4320,14 +3660,7 @@ At iteration $t$, XGBoost minimizes:
 <div class="math-box">
 
 $$
-\boxed{
-\mathcal L^{(t)}
-=
-\sum_{i=1}^{n}
-l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right)
-+
-\Omega(f_t)
-}
+\boxed{\mathcal L^{(t)} = \sum_{i=1}^{n} l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right) + \Omega(f_t)}
 $$
 
 </div>
@@ -4337,14 +3670,7 @@ where the tree-complexity penalty is:
 <div class="math-box">
 
 $$
-\boxed{
-\Omega(f_t)
-=
-\gamma T
-+
-\frac12\lambda
-\sum_{j=1}^{T}w_j^2
-}
+\boxed{\Omega(f_t) = \gamma T + \frac12\lambda \sum_{j=1}^{T}w_j^2}
 $$
 
 </div>
@@ -4358,18 +3684,7 @@ To make the optimization tractable, XGBoost approximates the objective around th
 <div class="math-box">
 
 $$
-\boxed{
-\mathcal L^{(t)}
-\approx
-\sum_{i=1}^{n}
-\left[
-g_i f_t(x_i)
-+
-\frac12 h_i f_t^2(x_i)
-\right]
-+
-\Omega(f_t)
-}
+\boxed{\mathcal L^{(t)} \approx \sum_{i=1}^{n} \left[ g_i f_t(x_i) + \frac12 h_i f_t^2(x_i) \right] + \Omega(f_t)}
 $$
 
 </div>
@@ -4413,11 +3728,7 @@ Ignoring the $L_1$ term for the basic formulation, the optimal leaf weight is:
 <div class="math-box">
 
 $$
-\boxed{
-w_j^*
-=
--\frac{G_j}{H_j+\lambda}
-}
+\boxed{w_j^* = -\frac{G_j}{H_j+\lambda}}
 $$
 
 </div>
@@ -4431,19 +3742,7 @@ For a candidate split dividing a parent node into left and right children, the r
 <div class="math-box">
 
 $$
-\boxed{
-Gain
-=
-\frac12
-\left[
-\frac{G_L^2}{H_L+\lambda}
-+
-\frac{G_R^2}{H_R+\lambda}
--
-\frac{G^2}{H+\lambda}
-\right]
--\gamma
-}
+\boxed{Gain = \frac12 \left[ \frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G^2}{H+\lambda} \right] -\gamma}
 $$
 
 </div>
@@ -4457,11 +3756,7 @@ After $K$ boosting iterations:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\sum_{k=1}^{K}f_k(x)
-}
+\boxed{\hat y(x) = \sum_{k=1}^{K}f_k(x)}
 $$
 
 </div>
@@ -4485,17 +3780,7 @@ The contribution of each tree is controlled during boosting by the learning rate
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{Loss}
-\rightarrow
-(g_i,h_i)
-\rightarrow
-\text{Regularized Split Gain}
-\rightarrow
-\text{Optimal Leaf Weights}
-\rightarrow
-\text{New Tree}
-}
+\boxed{\text{Loss} \rightarrow (g_i,h_i) \rightarrow \text{Regularized Split Gain} \rightarrow \text{Optimal Leaf Weights} \rightarrow \text{New Tree}}
 $$
 
 XGBoost therefore combines **second-order optimization with explicit structural regularization**, allowing successive trees to correct the current model while controlling unnecessary model complexity.
@@ -4559,22 +3844,14 @@ Leaf-wise growth can capture **localized nonlinear interactions** by repeatedly 
 ### Key LightGBM Principle
 
 $$
-\boxed{
-\text{Histogram Binning}
-+
-\text{Best-First Leaf Growth}
-+
-\text{Boosting}
-\rightarrow
-\text{Efficient Nonlinear Regression}
-}
+\boxed{\text{Histogram Binning} + \text{Best-First Leaf Growth} + \text{Boosting} \rightarrow \text{Efficient Nonlinear Regression}}
 $$
 
 <div class="source-footer">Source: Ke et al., 2017 — Advances in Neural Information Processing Systems (NeurIPS)</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/lgbm_plot.png)
+![bg right:45%](./lgbm.png)
 
 # LIGHTGBM : MATHEMATICAL FORMULATION
 
@@ -4585,13 +3862,7 @@ LightGBM follows the gradient-boosting framework. At iteration $t$, a new tree $
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_i^{(t)}
-=
-\hat y_i^{(t-1)}
-+
-f_t(x_i)
-}
+\boxed{\hat y_i^{(t)} = \hat y_i^{(t-1)} + f_t(x_i)}
 $$
 
 </div>
@@ -4601,14 +3872,7 @@ The corresponding objective is:
 <div class="math-box">
 
 $$
-\boxed{
-\mathcal L^{(t)}
-=
-\sum_{i=1}^{n}
-l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right)
-+
-\Omega(f_t)
-}
+\boxed{\mathcal L^{(t)} = \sum_{i=1}^{n} l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right) + \Omega(f_t)}
 $$
 
 </div>
@@ -4642,11 +3906,7 @@ A regularized optimal leaf weight can be written as:
 <div class="math-box">
 
 $$
-\boxed{
-w_j^*
-=
--\frac{G_j}{H_j+\lambda}
-}
+\boxed{w_j^* = -\frac{G_j}{H_j+\lambda}}
 $$
 
 </div>
@@ -4658,19 +3918,7 @@ For a candidate split that divides leaf $j$ into left and right leaves, the spli
 <div class="math-box">
 
 $$
-\boxed{
-Gain
-=
-\frac12
-\left[
-\frac{G_L^2}{H_L+\lambda}
-+
-\frac{G_R^2}{H_R+\lambda}
--
-\frac{G_j^2}{H_j+\lambda}
-\right]
--\gamma
-}
+\boxed{Gain = \frac12 \left[ \frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G_j^2}{H_j+\lambda} \right] -\gamma}
 $$
 
 </div>
@@ -4735,13 +3983,7 @@ After $T$ boosting iterations, the prediction is the sum of the contributions fr
 <div class="math-box">
 
 $$
-\boxed{
-\hat y(x)
-=
-\hat y_0
-+
-\sum_{t=1}^{T}\eta\,f_t(x)
-}
+\boxed{\hat y(x) = \hat y_0 + \sum_{t=1}^{T}\eta\,f_t(x)}
 $$
 
 </div>
@@ -4764,17 +4006,7 @@ where $\eta$ is the learning rate and $\hat y_0$ represents the initial predicti
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{Continuous Values}
-\rightarrow
-\text{Histogram Statistics}
-\rightarrow
-\text{Best Leaf Gain}
-\rightarrow
-\text{Leaf Expansion}
-\rightarrow
-\text{Boosting Update}
-}
+\boxed{\text{Continuous Values} \rightarrow \text{Histogram Statistics} \rightarrow \text{Best Leaf Gain} \rightarrow \text{Leaf Expansion} \rightarrow \text{Boosting Update}}
 $$
 
 The central distinction is that **LightGBM combines gradient boosting with computationally efficient histogram-based split finding and best-first leaf-wise tree growth**. Its efficiency does not mean it is automatically superior for small experimental CPCM datasets; model selection should still be based on consistent validation and generalization performance.
@@ -4812,15 +4044,7 @@ The prediction is compared with the experimental target through a regression los
 Training therefore consists of repeated:
 
 $$
-\boxed{
-\text{Forward Pass}
-\rightarrow
-\text{Loss}
-\rightarrow
-\text{Backpropagation}
-\rightarrow
-\text{Parameter Update}
-}
+\boxed{\text{Forward Pass} \rightarrow \text{Loss} \rightarrow \text{Backpropagation} \rightarrow \text{Parameter Update}}
 $$
 
 ### Relevance to Composite PCM
@@ -4856,22 +4080,14 @@ However, MLPs generally require **careful feature scaling, architecture selectio
 ### Key MLP Principle
 
 $$
-\boxed{
-\text{Weighted Transformations}
-+
-\text{Nonlinear Activations}
-+
-\text{Gradient-Based Learning}
-\rightarrow
-\text{Nonlinear Function Approximation}
-}
+\boxed{\text{Weighted Transformations} + \text{Nonlinear Activations} + \text{Gradient-Based Learning} \rightarrow \text{Nonlinear Function Approximation}}
 $$
 
 <div class="source-footer">Source: Rumelhart, Hinton & Williams, 1986 — Nature; Goodfellow, Bengio & Courville, 2016 — Deep Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/mlp_plot.png)
+![bg right:45%](./mlp.png)
 
 # MULTI-LAYER PERCEPTRON : MATHEMATICAL FORMULATION
 
@@ -4888,19 +4104,11 @@ Each hidden layer performs an affine transformation followed by an activation:
 <div class="math-box">
 
 $$
-\boxed{
-Z^{[l]}
-=
-W^{[l]}A^{[l-1]}+b^{[l]}
-}
+\boxed{Z^{[l]} = W^{[l]}A^{[l-1]}+b^{[l]}}
 $$
 
 $$
-\boxed{
-A^{[l]}
-=
-\sigma\left(Z^{[l]}\right)
-}
+\boxed{A^{[l]} = \sigma\left(Z^{[l]}\right)}
 $$
 
 </div>
@@ -4910,11 +4118,7 @@ For ReLU activation:
 <div class="math-box">
 
 $$
-\boxed{
-\sigma(z)
-=
-\max(0,z)
-}
+\boxed{\sigma(z) = \max(0,z)}
 $$
 
 </div>
@@ -4926,15 +4130,7 @@ For thermal-conductivity regression, the network parameters can be trained by mi
 <div class="math-box">
 
 $$
-\boxed{
-\mathcal L(W,b)
-=
-\frac{1}{N}
-\sum_{i=1}^{N}
-\left(
-y_i-\hat y_i
-\right)^2
-}
+\boxed{\mathcal L(W,b) = \frac{1}{N} \sum_{i=1}^{N} \left( y_i-\hat y_i \right)^2}
 $$
 
 </div>
@@ -4982,15 +4178,7 @@ Backpropagation computes the derivatives of the loss with respect to the network
 <div class="math-box">
 
 $$
-\boxed{
-\frac{\partial\mathcal L}
-{\partial W^{[l]}}
-=
-\frac{\partial\mathcal L}
-{\partial Z^{[l]}}
-\frac{\partial Z^{[l]}}
-{\partial W^{[l]}}
-}
+\boxed{\frac{\partial\mathcal L} {\partial W^{[l]}} = \frac{\partial\mathcal L} {\partial Z^{[l]}} \frac{\partial Z^{[l]}} {\partial W^{[l]}}}
 $$
 
 </div>
@@ -5015,27 +4203,11 @@ For basic gradient descent:
 <div class="math-box">
 
 $$
-\boxed{
-W^{[l]}
-\leftarrow
-W^{[l]}
--
-\eta
-\frac{\partial\mathcal L}
-{\partial W^{[l]}}
-}
+\boxed{W^{[l]} \leftarrow W^{[l]} - \eta \frac{\partial\mathcal L} {\partial W^{[l]}}}
 $$
 
 $$
-\boxed{
-b^{[l]}
-\leftarrow
-b^{[l]}
--
-\eta
-\frac{\partial\mathcal L}
-{\partial b^{[l]}}
-}
+\boxed{b^{[l]} \leftarrow b^{[l]} - \eta \frac{\partial\mathcal L} {\partial b^{[l]}}}
 $$
 
 </div>
@@ -5049,11 +4221,7 @@ For a regression MLP, the final output layer is typically linear:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y
-=
-W^{[L]}A^{[L-1]}+b^{[L]}
-}
+\boxed{\hat y = W^{[L]}A^{[L-1]}+b^{[L]}}
 $$
 
 </div>
@@ -5095,19 +4263,7 @@ This is the learned nonlinear mapping from CPCM descriptors to predicted thermal
 ### Key Mathematical Insight
 
 $$
-\boxed{
-X
-\xrightarrow{\;W,b\;}
-Z
-\xrightarrow{\;\sigma\;}
-A
-\xrightarrow{\text{repeated layers}}
-\hat y
-\xrightarrow{\mathcal L}
-\nabla W,\nabla b
-\xrightarrow{\text{optimizer}}
-W,b
-}
+\boxed{X \xrightarrow{\;W,b\;} Z \xrightarrow{\;\sigma\;} A \xrightarrow{\text{repeated layers}} \hat y \xrightarrow{\mathcal L} \nabla W,\nabla b \xrightarrow{\text{optimizer}} W,b}
 $$
 
 The essential mechanism is **differentiable composition**: nonlinear layers create the expressive function, while backpropagation computes how each parameter must change to reduce the training objective.
@@ -5137,17 +4293,7 @@ Each learner is assigned an ensemble weight according to its performance, and th
 Therefore, the central mechanism is:
 
 $$
-\boxed{
-\text{Weighted Data}
-\rightarrow
-\text{Weak Learner}
-\rightarrow
-\text{Measure Errors}
-\rightarrow
-\text{Increase Weight of Difficult Samples}
-\rightarrow
-\text{Next Learner}
-}
+\boxed{\text{Weighted Data} \rightarrow \text{Weak Learner} \rightarrow \text{Measure Errors} \rightarrow \text{Increase Weight of Difficult Samples} \rightarrow \text{Next Learner}}
 $$
 
 ### Relevance to Composite PCM
@@ -5176,20 +4322,14 @@ However, it is **not correct to describe the observations as different “classe
 ### Key AdaBoost Principle
 
 $$
-\boxed{
-\text{Focus on Large Prediction Errors}
-+
-\text{Sequential Weak Learners}
-\rightarrow
-\text{Adaptive Ensemble}
-}
+\boxed{\text{Focus on Large Prediction Errors} + \text{Sequential Weak Learners} \rightarrow \text{Adaptive Ensemble}}
 $$
 
 <div class="source-footer">Source: Freund & Schapire, 1997 — Journal of Computer and System Sciences; Drucker, 1997 — Improving Regressors using Boosting Techniques</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/adaboost_plot.png)
+![bg right:45%](./ada.png)
 
 # ADABOOST : MATHEMATICAL FORMULATION
 
@@ -5228,16 +4368,7 @@ The weighted error of learner $m$ is calculated as:
 <div class="math-box">
 
 $$
-\boxed{
-\epsilon_m
-=
-\frac{
-\sum_{i=1}^{N}
-w_i^{(m)}e_i^{(m)}
-}{
-\sum_{i=1}^{N}w_i^{(m)}
-}
-}
+\boxed{\epsilon_m = \frac{ \sum_{i=1}^{N} w_i^{(m)}e_i^{(m)} }{ \sum_{i=1}^{N}w_i^{(m)} }}
 $$
 
 </div>
@@ -5247,11 +4378,7 @@ The learner's performance determines its influence on the subsequent weighting:
 <div class="math-box">
 
 $$
-\boxed{
-\beta_m
-=
-\frac{\epsilon_m}{1-\epsilon_m}
-}
+\boxed{\beta_m = \frac{\epsilon_m}{1-\epsilon_m}}
 $$
 
 </div>
@@ -5261,12 +4388,7 @@ For the standard AdaBoost.R2 formulation, the sample weights are then updated ac
 <div class="math-box">
 
 $$
-\boxed{
-w_i^{(m+1)}
-=
-w_i^{(m)}
-\beta_m^{\,1-e_i^{(m)}}
-}
+\boxed{w_i^{(m+1)} = w_i^{(m)} \beta_m^{\,1-e_i^{(m)}}}
 $$
 
 </div>
@@ -5282,13 +4404,7 @@ A common AdaBoost.R2 formulation assigns the learner an ensemble weight related 
 <div class="math-box">
 
 $$
-\boxed{
-\alpha_m
-=
-\ln\left(\frac{1}{\beta_m}\right)
-=
-\ln\left(\frac{1-\epsilon_m}{\epsilon_m}\right)
-}
+\boxed{\alpha_m = \ln\left(\frac{1}{\beta_m}\right) = \ln\left(\frac{1-\epsilon_m}{\epsilon_m}\right)}
 $$
 
 </div>
@@ -5304,15 +4420,7 @@ A generic weighted-aggregation representation is:
 <div class="math-box">
 
 $$
-\boxed{
-\hat f(x)
-=
-\operatorname{WeightedAggregate}
-\left(
-f_1(x),f_2(x),\ldots,f_M(x);
-\alpha_1,\alpha_2,\ldots,\alpha_M
-\right)
-}
+\boxed{\hat f(x) = \operatorname{WeightedAggregate} \left( f_1(x),f_2(x),\ldots,f_M(x); \alpha_1,\alpha_2,\ldots,\alpha_M \right)}
 $$
 
 </div>
@@ -5320,14 +4428,7 @@ $$
 For the standard AdaBoost.R2 formulation:
 
 $$
-\boxed{
-\hat f(x)
-=
-\operatorname{WeightedMedian}
-\left\{
-f_m(x),\alpha_m
-\right\}_{m=1}^{M}
-}
+\boxed{\hat f(x) = \operatorname{WeightedMedian} \left\{ f_m(x),\alpha_m \right\}_{m=1}^{M}}
 $$
 
 ### Mathematical Interpretation
@@ -5344,17 +4445,7 @@ $$
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\text{Prediction Error}
-\rightarrow
-\text{Sample Reweighting}
-\rightarrow
-\text{Focus on Difficult Observations}
-\rightarrow
-\text{Next Weak Learner}
-\rightarrow
-\text{Weighted Aggregation}
-}
+\boxed{\text{Prediction Error} \rightarrow \text{Sample Reweighting} \rightarrow \text{Focus on Difficult Observations} \rightarrow \text{Next Weak Learner} \rightarrow \text{Weighted Aggregation}}
 $$
 
 The fundamental idea of AdaBoost.R2 is therefore **adaptive redistribution of training emphasis**: observations that remain difficult to predict exert greater influence on subsequent learners, while better-performing learners receive greater ensemble importance.
@@ -5421,22 +4512,14 @@ However, stacking does **not automatically guarantee better generalization**. It
 ### Key Stacking Principle
 
 $$
-\boxed{
-\text{Heterogeneous Base Predictions}
-\rightarrow
-\text{OOF Meta-Features}
-\rightarrow
-\text{Learned Combination}
-\rightarrow
-\text{Final Prediction}
-}
+\boxed{\text{Heterogeneous Base Predictions} \rightarrow \text{OOF Meta-Features} \rightarrow \text{Learned Combination} \rightarrow \text{Final Prediction}}
 $$
 
 <div class="source-footer">Source: Wolpert, 1992 — Stacked Generalization, Neural Networks</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/stacking_plot.png)
+![bg right:45%](./st.png)
 
 # STACKING REGRESSOR : MATHEMATICAL FORMULATION
 
@@ -5455,15 +4538,7 @@ For training observation $x_i$, its meta-feature vector is:
 <div class="math-box">
 
 $$
-\boxed{
-Z_i=
-\left[
-f_1^{-k}(x_i),
-f_2^{-k}(x_i),
-\ldots,
-f_m^{-k}(x_i)
-\right]
-}
+\boxed{Z_i= \left[ f_1^{-k}(x_i), f_2^{-k}(x_i), \ldots, f_m^{-k}(x_i) \right]}
 $$
 
 </div>
@@ -5479,15 +4554,7 @@ After generating OOF predictions for every observation:
 <div class="math-box">
 
 $$
-\boxed{
-Z=
-\begin{bmatrix}
-f_1^{-k_1}(x_1)&\cdots&f_m^{-k_1}(x_1)\\
-f_1^{-k_2}(x_2)&\cdots&f_m^{-k_2}(x_2)\\
-\vdots&\ddots&\vdots\\
-f_1^{-k_N}(x_N)&\cdots&f_m^{-k_N}(x_N)
-\end{bmatrix}
-}
+\boxed{Z= \begin{bmatrix} f_1^{-k_1}(x_1)&\cdots&f_m^{-k_1}(x_1)\\ f_1^{-k_2}(x_2)&\cdots&f_m^{-k_2}(x_2)\\ \vdots&\ddots&\vdots\\ f_1^{-k_N}(x_N)&\cdots&f_m^{-k_N}(x_N) \end{bmatrix}}
 $$
 
 </div>
@@ -5513,11 +4580,7 @@ The Level-1 learner $h$ minimizes prediction error between the meta-predictions 
 <div class="math-box">
 
 $$
-\boxed{
-\min_h
-\sum_{i=1}^{N}
-L\left(y_i,h(Z_i)\right)
-}
+\boxed{\min_h \sum_{i=1}^{N} L\left(y_i,h(Z_i)\right)}
 $$
 
 </div>
@@ -5527,13 +4590,7 @@ For a linear meta-learner:
 <div class="math-box">
 
 $$
-\boxed{
-\min_{\beta,b}
-\sum_{i=1}^{N}
-\left(
-y_i-\beta^T Z_i-b
-\right)^2
-}
+\boxed{\min_{\beta,b} \sum_{i=1}^{N} \left( y_i-\beta^T Z_i-b \right)^2}
 $$
 
 </div>
@@ -5543,15 +4600,7 @@ The coefficients $\beta$ determine how the meta-learner combines the base-model 
 If Ridge is used as the meta-learner:
 
 $$
-\boxed{
-\min_{\beta,b}
-\left[
-\sum_{i=1}^{N}
-(y_i-\beta^TZ_i-b)^2
-+
-\lambda\|\beta\|_2^2
-\right]
-}
+\boxed{\min_{\beta,b} \left[ \sum_{i=1}^{N} (y_i-\beta^TZ_i-b)^2 + \lambda\|\beta\|_2^2 \right]}
 $$
 
 The $L_2$ penalty helps control the complexity of the meta-model when base predictions are correlated.
@@ -5576,16 +4625,7 @@ The trained meta-learner then produces:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y
-=
-h\left(
-f_1(x),
-f_2(x),
-\ldots,
-f_m(x)
-\right)
-}
+\boxed{\hat y = h\left( f_1(x), f_2(x), \ldots, f_m(x) \right)}
 $$
 
 </div>
@@ -5595,13 +4635,7 @@ For a linear meta-learner:
 <div class="math-box">
 
 $$
-\boxed{
-\hat y
-=
-\beta_0+
-\sum_{j=1}^{m}
-\beta_jf_j(x)
-}
+\boxed{\hat y = \beta_0+ \sum_{j=1}^{m} \beta_jf_j(x)}
 $$
 
 </div>
@@ -5623,13 +4657,7 @@ If the meta-learner were trained using predictions from base models that had alr
 OOF prediction avoids this:
 
 $$
-\boxed{
-\text{Training Sample}
-\notin
-\text{Base-Model Training Fold}
-\rightarrow
-\text{OOF Prediction}
-}
+\boxed{\text{Training Sample} \notin \text{Base-Model Training Fold} \rightarrow \text{OOF Prediction}}
 $$
 
 Therefore, the meta-learner learns from predictions that more closely represent the base models' **unseen-data behaviour**.
@@ -5650,17 +4678,7 @@ Therefore, the meta-learner learns from predictions that more closely represent 
 ### Key Mathematical Insight
 
 $$
-\boxed{
-X
-\rightarrow
-\{f_1,\ldots,f_m\}
-\rightarrow
-Z_{\mathrm{OOF}}
-\rightarrow
-h(Z)
-\rightarrow
-\hat y
-}
+\boxed{X \rightarrow \{f_1,\ldots,f_m\} \rightarrow Z_{\mathrm{OOF}} \rightarrow h(Z) \rightarrow \hat y}
 $$
 
 The fundamental idea is that **stacking converts the predictions of multiple models into a new learned feature space**. The meta-learner then discovers how those predictions should be combined to minimize prediction error.
@@ -5698,12 +4716,7 @@ For the **uniform-weight Voting Regressor**, these predictions are combined usin
 Thus, the ensemble does not retrain a meta-model or learn combination weights. Its aggregation rule is fixed:
 
 $$
-\boxed{
-\hat y_{ens}
-=
-\frac{1}{M}
-\sum_{m=1}^{M}\hat y_m
-}
+\boxed{\hat y_{ens} = \frac{1}{M} \sum_{m=1}^{M}\hat y_m}
 $$
 
 **Important distinction:** unlike Stacking, Voting does **not** use a Level-1 meta-learner. Unlike Boosting, the component models are not sequentially trained to correct one another's residuals.
@@ -5755,20 +4768,14 @@ However, high correlation between component models can limit the benefit of aver
 ### Key Voting Principle
 
 $$
-\boxed{
-\text{Independent Base Predictions}
-+
-\text{Uniform Aggregation}
-\rightarrow
-\text{Combined Prediction}
-}
+\boxed{\text{Independent Base Predictions} + \text{Uniform Aggregation} \rightarrow \text{Combined Prediction}}
 $$
 
 <div class="source-footer">Source: Kuncheva, 2004 — Combining Pattern Classifiers: Methods and Algorithms; Dietterich, 2000 — Ensemble Methods in Machine Learning</div>
 
 ---
 
-![bg right:45%](/home/tushar/.gemini/antigravity-ide/brain/f478d6ab-d9bb-491b-bd2d-a42f809e0de4/scratch/voting_plot.png)
+![bg right:45%](./ensemble.png)
 
 # ENSEMBLE COMBINATIONS : AGGREGATION MATH
 
@@ -5779,13 +4786,7 @@ For an ensemble containing $M$ base regressors, uniform Voting Regression calcul
 <div class="math-box">
 
 $$
-\boxed{
-\hat y_{ensemble}
-=
-\frac{1}{M}
-\sum_{m=1}^{M}
-\hat y_m
-}
+\boxed{\hat y_{ensemble} = \frac{1}{M} \sum_{m=1}^{M} \hat y_m}
 $$
 
 </div>
@@ -5823,12 +4824,7 @@ Then the ensemble error is:
 <div class="math-box">
 
 $$
-\boxed{
-e_{ens}
-=
-\frac{1}{M}
-\sum_{m=1}^{M}e_m
-}
+\boxed{e_{ens} = \frac{1}{M} \sum_{m=1}^{M}e_m}
 $$
 
 </div>
@@ -5877,11 +4873,7 @@ $$
 Therefore:
 
 $$
-\boxed{
-\text{Lower Error Correlation}
-\Rightarrow
-\text{Greater Potential Benefit from Averaging}
-}
+\boxed{\text{Lower Error Correlation} \Rightarrow \text{Greater Potential Benefit from Averaging}}
 $$
 
 This does **not** mean that the covariance is guaranteed to be low merely because two algorithms are structurally different. The covariance should be evaluated empirically from their validation predictions.
@@ -5893,13 +4885,7 @@ For a uniform average, aggregation can reduce variance when component prediction
 Therefore, a scientifically defensible interpretation is:
 
 $$
-\boxed{
-\text{Model Diversity}
-+
-\text{Error Averaging}
-\rightarrow
-\text{Potentially More Stable Prediction}
-}
+\boxed{\text{Model Diversity} + \text{Error Averaging} \rightarrow \text{Potentially More Stable Prediction}}
 $$
 
 rather than claiming that every combination necessarily reduces both bias and variance.
@@ -5917,13 +4903,7 @@ rather than claiming that every combination necessarily reduces both bias and va
 ### Key Mathematical Insight
 
 $$
-\boxed{
-\operatorname{Var}(e_{ens})
-\propto
-\text{Individual Error Variances}
-+
-\text{Pairwise Error Covariances}
-}
+\boxed{\operatorname{Var}(e_{ens}) \propto \text{Individual Error Variances} + \text{Pairwise Error Covariances}}
 $$
 
 Thus, the value of an ensemble depends not simply on **how many models are combined**, but on whether the additional models contribute useful and sufficiently different prediction information.
@@ -5949,13 +4929,7 @@ Both models learn nonlinear relationships through sequential trees, but their op
 ### Architecture
 
 $$
-\boxed{
-\text{XGBoost}
-+
-\text{Gradient Boosting}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{XGBoost} + \text{Gradient Boosting} \rightarrow \text{Uniform Voting}}
 $$
 
 ### Rank
@@ -5980,13 +4954,7 @@ ExtraTrees and XGBoost explore the feature space using substantially different t
 ### Architecture
 
 $$
-\boxed{
-\text{ExtraTrees}
-+
-\text{XGBoost}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{ExtraTrees} + \text{XGBoost} \rightarrow \text{Uniform Voting}}
 $$
 
 ### Rank
@@ -6011,13 +4979,7 @@ RF and XGBoost have different ensemble-generation mechanisms. Averaging their pr
 ### Architecture
 
 $$
-\boxed{
-\text{Random Forest}
-+
-\text{XGBoost}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{Random Forest} + \text{XGBoost} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6038,13 +5000,7 @@ Both models can represent nonlinear feature interactions, but their split-genera
 ### Architecture
 
 $$
-\boxed{
-\text{XGBoost}
-+
-\text{LightGBM}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{XGBoost} + \text{LightGBM} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6064,13 +5020,7 @@ The ensemble therefore tests whether averaging these prediction behaviours impro
 ### Architecture
 
 $$
-\boxed{
-\text{ExtraTrees}
-+
-\text{Gradient Boosting}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{ExtraTrees} + \text{Gradient Boosting} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6093,13 +5043,7 @@ This combination tests whether the smooth nonlinear behaviour of SVR complements
 ### Architecture
 
 $$
-\boxed{
-\text{LightGBM}
-+
-\text{SVR}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{LightGBM} + \text{SVR} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6122,13 +5066,7 @@ Their averaged prediction can therefore test whether the two modelling geometrie
 ### Architecture
 
 $$
-\boxed{
-\text{Random Forest}
-+
-\text{SVR}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{Random Forest} + \text{SVR} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6149,13 +5087,7 @@ The combination tests whether a simple global linear component contributes infor
 ### Architecture
 
 $$
-\boxed{
-\text{XGBoost}
-+
-\text{Ridge}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{XGBoost} + \text{Ridge} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6178,13 +5110,7 @@ Importantly, ExtraTrees should **not be described as an external regularizer for
 ### Architecture
 
 $$
-\boxed{
-\text{ExtraTrees}
-+
-\text{LightGBM}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{ExtraTrees} + \text{LightGBM} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6205,13 +5131,7 @@ Ridge provides a simple global baseline, while SVR can represent nonlinear relat
 ### Architecture
 
 $$
-\boxed{
-\text{SVR}
-+
-\text{Ridge}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{SVR} + \text{Ridge} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6234,13 +5154,7 @@ The combination tests whether these different error structures improve the stabi
 ### Architecture
 
 $$
-\boxed{
-\text{Random Forest}
-+
-\text{Gradient Boosting}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{Random Forest} + \text{Gradient Boosting} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6264,15 +5178,7 @@ Because these models share the same broad tree-based representation, their predi
 ### Architecture
 
 $$
-\boxed{
-\text{XGBoost}
-+
-\text{Random Forest}
-+
-\text{LightGBM}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{XGBoost} + \text{Random Forest} + \text{LightGBM} \rightarrow \text{Uniform Voting}}
 $$
 
 ---
@@ -6298,15 +5204,7 @@ Feature scaling requirements should be handled **inside the appropriate preproce
 ### Architecture
 
 $$
-\boxed{
-\text{ExtraTrees}
-+
-\text{SVR}
-+
-\text{Ridge}
-\rightarrow
-\text{Uniform Voting}
-}
+\boxed{\text{ExtraTrees} + \text{SVR} + \text{Ridge} \rightarrow \text{Uniform Voting}}
 $$
 
 ### Overall Ensemble Interpretation
@@ -6314,15 +5212,7 @@ $$
 The 13 combinations therefore represent a systematic test of:
 
 $$
-\boxed{
-\text{Different Learning Biases}
-\rightarrow
-\text{Prediction Diversity}
-\rightarrow
-\text{Aggregation}
-\rightarrow
-\text{Generalization Test}
-}
+\boxed{\text{Different Learning Biases} \rightarrow \text{Prediction Diversity} \rightarrow \text{Aggregation} \rightarrow \text{Generalization Test}}
 $$
 
 The **final ranking must come from the same validation protocol used for all individual models and combinations**. The strongest ensemble is not necessarily the one containing the most algorithms; its value depends on both the accuracy of its component models and the degree of complementarity among their prediction errors.
