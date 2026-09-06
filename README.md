@@ -383,13 +383,9 @@ $$
 
 For $p$ input features, the linear regression model is:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_i = \beta_0+ \sum_{j=1}^{p}\beta_jx_{ij}}
 $$
-
-</div>
 
 In matrix notation, augmenting $X$ with a column of ones:
 
@@ -405,13 +401,9 @@ where $\epsilon$ represents the residual/error term.
 
 Ordinary Least Squares estimates the coefficients by minimizing the sum of squared residuals:
 
-<div class="math-box">
-
 $$
 \boxed{\hat\beta = \arg\min_{\beta} \|y-X\beta\|_2^2}
 $$
-
-</div>
 
 Equivalently:
 
@@ -431,23 +423,15 @@ The squared-error objective penalizes large residuals more strongly than small r
 
 Taking the derivative of the least-squares objective with respect to $\beta$ and setting it to zero gives:
 
-<div class="math-box">
-
 $$
 \boxed{X^TX\hat\beta=X^Ty}
 $$
 
-</div>
-
 When $X^TX$ is nonsingular:
-
-<div class="math-box">
 
 $$
 \boxed{\hat\beta = (X^TX)^{-1}X^Ty}
 $$
-
-</div>
 
 In practical numerical implementations, the coefficients are generally obtained using stable matrix-factorization methods rather than explicitly computing the inverse.
 
@@ -463,13 +447,9 @@ $$
 
 is the point in the linear model space that minimizes the Euclidean distance to $y$:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y = \arg\min_{z\in Col(X)} \|y-z\|_2^2}
 $$
-
-</div>
 
 At the optimum, the residual vector is orthogonal to the feature space:
 
@@ -501,13 +481,9 @@ OLS chooses the coefficients that minimize this quantity.
 
 The coefficient of determination is often used to summarize explained variation:
 
-<div class="math-box">
-
 $$
 \boxed{R^2 = 1- \frac{\sum_i(y_i-\hat y_i)^2} {\sum_i(y_i-\bar y)^2}}
 $$
-
-</div>
 
 However, for model comparison in the CPCM study, $R^2$ should be interpreted together with error metrics such as RMSE and MAE and, importantly, evaluated on held-out data.
 
@@ -515,13 +491,9 @@ However, for model comparison in the CPCM study, $R^2$ should be interpreted tog
 
 For a new CPCM observation:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \hat\beta_0+ \sum_{j=1}^{p} \hat\beta_jx_j}
 $$
-
-</div>
 
 The prediction is therefore a weighted sum of the feature values plus the estimated intercept.
 
@@ -626,13 +598,9 @@ $$
 
 For a query point $x_q$ and training observation $x_i$, the Minkowski distance is:
 
-<div class="math-box">
-
 $$
 \boxed{d(x_q,x_i) = \left( \sum_{j=1}^{p} |x_{qj}-x_{ij}|^r \right)^{1/r}}
 $$
-
-</div>
 
 For the commonly used Euclidean distance ($r=2$):
 
@@ -655,13 +623,9 @@ KNN does not optimize a global parameter vector such as $\beta$ in Linear Regres
 
 For uniform weighting:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x_q) = \frac{1}{k} \sum_{i\in\mathcal N_k(x_q)} y_i}
 $$
-
-</div>
 
 Thus, the prediction is simply the mean target value of the $k$ nearest observations.
 
@@ -679,13 +643,9 @@ $$
 
 leading to:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x_q) = \frac{ \sum_{i\in\mathcal N_k(x_q)} w_i y_i }{ \sum_{i\in\mathcal N_k(x_q)} w_i }}
 $$
-
-</div>
 
 Therefore, a training sample extremely close to the query point can exert substantially greater influence than a more distant neighbour.
 
@@ -695,13 +655,9 @@ Because KNN relies directly on distances, variables with larger numerical ranges
 
 For standardization:
 
-<div class="math-box">
-
 $$
 \boxed{x_j' = \frac{x_j-\mu_j}{\sigma_j}}
 $$
-
-</div>
 
 where $\mu_j$ and $\sigma_j$ are calculated from the **training data**.
 
@@ -766,23 +722,15 @@ This is one reason KNN can perform well in low-dimensional, meaningful feature s
 
 For uniform KNN:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \frac{1}{k} \sum_{i\in\mathcal N_k(x)} y_i}
 $$
 
-</div>
-
 For distance-weighted KNN:
-
-<div class="math-box">
 
 $$
 \boxed{\hat y(x) = \frac{ \sum_{i\in\mathcal N_k(x)} w_i y_i }{ \sum_{i\in\mathcal N_k(x)} w_i }}
 $$
-
-</div>
 
 ### Mathematical Interpretation
 
@@ -894,13 +842,9 @@ $$
 
 LASSO retains the linear regression structure:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_i = \beta_0+ \sum_{j=1}^{p} \beta_jx_{ij}}
 $$
-
-</div>
 
 The difference from ordinary Linear Regression is the **regularized learning criterion**.
 
@@ -908,13 +852,9 @@ The difference from ordinary Linear Regression is the **regularized learning cri
 
 The LASSO coefficients are obtained by minimizing:
 
-<div class="math-box">
-
 $$
 \boxed{\min_{\beta_0,\beta} \left[ \frac{1}{2N} \sum_{i=1}^{N} (y_i-\beta_0-x_i^T\beta)^2 + \lambda \sum_{j=1}^{p}|\beta_j| \right]}
 $$
-
-</div>
 
 The first term measures prediction error, while the second term penalizes the absolute magnitude of the coefficients.
 
@@ -930,8 +870,6 @@ for the corresponding LASSO formulation.
 
 The penalized formulation can also be expressed as a constrained least-squares problem:
 
-<div class="math-box">
-
 $$
 \boxed{\min_{\beta_0,\beta} \sum_{i=1}^{N} (y_i-\beta_0-x_i^T\beta)^2}
 $$
@@ -941,8 +879,6 @@ subject to
 $$
 \boxed{\sum_{j=1}^{p}|\beta_j| \leq t}
 $$
-
-</div>
 
 The two formulations are equivalent under an appropriate correspondence between $\lambda$ and the constraint $t$.
 
@@ -960,13 +896,9 @@ Unlike the squared $L_2$ penalty, the absolute-value function has a **non-differ
 
 The optimization therefore permits the solution to occur exactly at zero:
 
-<div class="math-box">
-
 $$
 \boxed{\lambda\uparrow \Rightarrow \text{stronger shrinkage} \Rightarrow \text{more coefficients can become }0}
 $$
-
-</div>
 
 Hence:
 
@@ -983,13 +915,9 @@ A common optimization strategy for LASSO is **coordinate descent**, where one co
 
 The resulting update has the form of a **soft-thresholding operation**:
 
-<div class="math-box">
-
 $$
 \boxed{\beta_j \leftarrow \frac{ S\left( \frac1N x_j^T(y-X_{-j}\beta_{-j}), \lambda \right) }{ \frac1N x_j^Tx_j }}
 $$
-
-</div>
 
 where the soft-thresholding operator is:
 
@@ -1051,23 +979,15 @@ Thus, LASSO creates a continuum between an unrestricted linear model and a highl
 
 After optimization:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \hat\beta_0 + \sum_{j=1}^{p} \hat\beta_jx_j}
 $$
 
-</div>
-
 Because many $\hat\beta_j$ may equal zero, this can equivalently be written over the active feature set $\mathcal A$:
-
-<div class="math-box">
 
 $$
 \boxed{\hat y(x) = \hat\beta_0 + \sum_{j\in\mathcal A} \hat\beta_jx_j}
 $$
-
-</div>
 
 where:
 
@@ -1409,13 +1329,9 @@ $$
 
 Ridge minimizes the residual sum of squares while imposing an $L_2$ penalty on the coefficient vector:
 
-<div class="math-box">
-
 $$
 \boxed{\min_{\beta} \left[ \|y-X\beta\|_2^2 + \lambda\|\beta\|_2^2 \right]}
 $$
-
-</div>
 
 The first term measures the discrepancy between measured and predicted thermal conductivity, while the second penalizes large coefficient magnitudes.
 
@@ -1449,13 +1365,9 @@ $$
 
 and therefore:
 
-<div class="math-box">
-
 $$
 \boxed{\hat{\beta}^{ridge} = (X^TX+\lambda I)^{-1}X^Ty}
 $$
-
-</div>
 
 The addition of $\lambda I$ improves the conditioning of $X^TX$, particularly when predictors are strongly correlated.
 
@@ -1463,13 +1375,9 @@ The addition of $\lambda I$ improves the conditioning of $X^TX$, particularly wh
 
 For a new feature vector $x$:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x)=x^T\hat{\beta}^{ridge}+\hat b}
 $$
-
-</div>
 
 If the implementation centers the data and handles the intercept separately, the intercept is estimated independently of the regularization penalty.
 
@@ -1573,8 +1481,6 @@ $$
 
 PLS represents the predictor and response matrices using latent scores:
 
-<div class="math-box">
-
 $$
 \boxed{X=TP^T+E}
 $$
@@ -1582,8 +1488,6 @@ $$
 $$
 \boxed{Y=UQ^T+F}
 $$
-
-</div>
 
 where $T$ and $U$ contain latent scores, $P$ and $Q$ contain loadings, and $E,F$ represent residual matrices.
 
@@ -1617,13 +1521,9 @@ For a new observation $x$, the corresponding latent representation is obtained f
 
 A common compact representation is:
 
-<div class="math-box">
-
 $$
 \boxed{\hat Y=X\hat B_{PLS}}
 $$
-
-</div>
 
 where $\hat B_{PLS}$ is the regression coefficient matrix reconstructed from the retained latent components.
 
@@ -1741,23 +1641,15 @@ $$
 
 CatBoost represents the prediction as an additive sequence of trees:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_i^{(t)} = \hat y_i^{(t-1)} + \eta f_t(x_i)}
 $$
 
-</div>
-
 After $T$ boosting iterations:
-
-<div class="math-box">
 
 $$
 \boxed{\hat y_i = \hat y_0 + \eta \sum_{t=1}^{T} f_t(x_i)}
 $$
-
-</div>
 
 where $f_t$ is the tree constructed at iteration $t$ and $\eta$ is the learning rate.
 
@@ -1765,13 +1657,9 @@ where $f_t$ is the tree constructed at iteration $t$ and $\eta$ is the learning 
 
 For thermal-conductivity regression, CatBoost can minimize the Root Mean Squared Error objective. Since minimizing RMSE is equivalent to minimizing MSE with respect to the model parameters, the optimization can be expressed as:
 
-<div class="math-box">
-
 $$
 \boxed{\mathcal L = \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat y_i)^2}
 $$
-
-</div>
 
 CatBoost then constructs each successive tree to improve the current approximation of this objective.
 
@@ -1788,13 +1676,9 @@ $$
 
 For squared-error loss:
 
-<div class="math-box">
-
 $$
 \boxed{g_i = 2(\hat y_i-y_i)}
 $$
-
-</div>
 
 Thus, observations with larger residual errors produce larger gradient magnitudes and exert greater influence on subsequent boosting corrections.
 
@@ -1812,13 +1696,9 @@ and every observation follows the same sequence of split conditions.
 
 A leaf can consequently be represented by a binary code:
 
-<div class="math-box">
-
 $$
 \boxed{q(x) = \sum_{d=1}^{D} 2^{d-1} I\left[s_d(x)=1\right]}
 $$
-
-</div>
 
 where $D$ is the tree depth.
 
@@ -1834,8 +1714,6 @@ leaf regions for a depth-$D$ oblivious tree.
 
 For a leaf $j$ containing observations $I_j$, the regularized squared-error objective can be represented as:
 
-<div class="math-box">
-
 $$
 \mathcal L_j(w_j)
 =
@@ -1845,17 +1723,11 @@ $$
 \lambda w_j^2
 $$
 
-</div>
-
 Differentiating with respect to $w_j$ and setting the derivative to zero gives the regularized optimal leaf value:
-
-<div class="math-box">
 
 $$
 \boxed{w_j^* = \frac{ \sum_{i\in I_j} (y_i-\hat y_i^{old}) }{ |I_j|+\lambda }}
 $$
-
-</div>
 
 Thus, the new tree contributes a regularized correction to the current prediction.
 
@@ -1871,13 +1743,9 @@ $$
 
 the ordered estimate associated with observation $\sigma(i)$ is constructed using information from preceding observations:
 
-<div class="math-box">
-
 $$
 \boxed{\text{Training information for }\sigma(i) \leftarrow \{\sigma(1),\ldots,\sigma(i-1)\}}
 $$
-
-</div>
 
 This reduces the **prediction shift** that can occur when the statistics used to construct a learner differ systematically between training and inference.
 
@@ -1887,13 +1755,9 @@ For categorical features, this mechanism is particularly important because CatBo
 
 The final CatBoost regressor is therefore:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \hat y_0 + \eta \sum_{t=1}^{T} f_t(x)}
 $$
-
-</div>
 
 Each tree contributes a small correction to the existing prediction, and the cumulative result forms the final thermal-conductivity estimate.
 
@@ -2020,13 +1884,9 @@ $$
 
 Let the conditional distribution of the target be:
 
-<div class="math-box">
-
 $$
 \boxed{Y\mid X=x \sim P\left(y;\theta(x)\right)}
 $$
-
-</div>
 
 where $\theta(x)$ is a vector of distribution parameters learned as a function of the input features.
 
@@ -2055,13 +1915,9 @@ NGBoost learns these parameters rather than directly learning only a single scal
 
 NGBoost trains the conditional distribution using a **proper scoring rule**. For the commonly used Log Score:
 
-<div class="math-box">
-
 $$
 \boxed{S(y,\theta) = -\log p(y\mid\theta)}
 $$
-
-</div>
 
 Minimizing this score encourages the predicted probability distribution to assign high probability to the observed target values.
 
@@ -2079,13 +1935,9 @@ $$
 
 Therefore, the negative log-likelihood is:
 
-<div class="math-box">
-
 $$
 \boxed{S(y,\mu,\sigma) = \log\sigma + \frac{(y-\mu)^2}{2\sigma^2} + \frac12\log(2\pi)}
 $$
-
-</div>
 
 Unlike ordinary MSE regression, the objective therefore evaluates both the **location and scale** of the predicted distribution.
 
@@ -2137,23 +1989,15 @@ These gradients describe how the distribution parameters should change to improv
 
 Ordinary gradient descent depends on the parameterization of the distribution. NGBoost instead uses the **natural gradient**, which rescales the ordinary gradient using the inverse Fisher information matrix.
 
-<div class="math-box">
-
 $$
 \boxed{\widetilde{\nabla}_\rho S = I(\rho)^{-1} \nabla_\rho S}
 $$
 
-</div>
-
 where $I(\rho)$ is the Fisher information matrix:
-
-<div class="math-box">
 
 $$
 \boxed{I(\rho) = \mathbb E \left[ \nabla_\rho S \nabla_\rho S^T \right]}
 $$
-
-</div>
 
 The Fisher matrix accounts for the local geometry of the statistical distribution, making the update less dependent on the arbitrary parameterization used to represent it.
 
@@ -2163,13 +2007,9 @@ At boosting iteration $m$, a base learner $f_m(x)$ is fitted to the natural-grad
 
 The distribution parameters are then updated as:
 
-<div class="math-box">
-
 $$
 \boxed{\rho^{(m)}(x) = \rho^{(m-1)}(x) + \eta f_m(x)}
 $$
-
-</div>
 
 where $\eta$ is the learning rate.
 
@@ -2179,13 +2019,9 @@ Thus, each tree does not simply predict the final thermal conductivity. Instead,
 
 After $M$ boosting iterations:
 
-<div class="math-box">
-
 $$
 \boxed{\rho(x) = \rho^{(0)} + \eta \sum_{m=1}^{M} f_m(x)}
 $$
-
-</div>
 
 For a Normal distribution:
 
@@ -2195,13 +2031,9 @@ $$
 
 The point prediction can therefore be taken as:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x)=\hat\mu(x)}
 $$
-
-</div>
 
 while $\hat\sigma(x)$ provides an estimate of the conditional predictive spread.
 
@@ -2209,13 +2041,9 @@ while $\hat\sigma(x)$ provides an estimate of the conditional predictive spread.
 
 For an approximately Gaussian predictive distribution, an approximate $95%$ predictive interval is:
 
-<div class="math-box">
-
 $$
 \boxed{\hat\mu(x) \pm 1.96\,\hat\sigma(x)}
 $$
-
-</div>
 
 This gives NGBoost an important advantage over conventional point-prediction models: it can provide **distributional information rather than only a single estimate**.
 
@@ -2907,23 +2735,15 @@ $$
 
 The selected split minimizes the weighted child-node impurity:
 
-<div class="math-box">
-
 $$
 \boxed{\theta^* = \arg\min_{\theta} \left[ \frac{N_L}{N_m}I(L) + \frac{N_R}{N_m}I(R) \right]}
 $$
 
-</div>
-
 Equivalently, the algorithm can maximize the impurity reduction:
-
-<div class="math-box">
 
 $$
 \boxed{\Delta I = I(m) - \frac{N_L}{N_m}I(L) - \frac{N_R}{N_m}I(R)}
 $$
-
-</div>
 
 The best split is the one producing the largest $\Delta I$.
 
@@ -2943,13 +2763,9 @@ The same optimization is then applied recursively to the child nodes until the s
 
 A trained regression tree partitions the feature space into terminal regions $R_1,\ldots,R_M$. For a new observation $x$:
 
-<div class="math-box">
-
 $$
 \boxed{\hat f(x) = \sum_{m=1}^{M} \hat c_m I(x\in R_m)}
 $$
-
-</div>
 
 Because exactly one terminal region contains $x$:
 
@@ -3060,13 +2876,9 @@ where $R_{b,m}$ is the terminal region reached by $x$ in tree $b$.
 
 The final Random Forest regression prediction is the arithmetic mean of the individual tree predictions:
 
-<div class="math-box">
-
 $$
 \boxed{\hat f_{RF}(x) = \frac{1}{B} \sum_{b=1}^{B}T_b(x)}
 $$
-
-</div>
 
 where $B$ is the number of trees.
 
@@ -3074,13 +2886,9 @@ where $B$ is the number of trees.
 
 For identically distributed trees with variance $\sigma^2$ and pairwise correlation $\rho$, the variance of their average can be expressed as:
 
-<div class="math-box">
-
 $$
 \boxed{\operatorname{Var} \left[ \frac{1}{B}\sum_{b=1}^{B}T_b \right] = \rho\sigma^2+ \frac{1-\rho}{B}\sigma^2}
 $$
-
-</div>
 
 This relationship demonstrates two important properties:
 
@@ -3229,13 +3037,9 @@ $$
 
 Consider a node containing observations $S$. For a randomly selected feature $X_j$, ExtraTrees generates a candidate threshold within the observed feature range:
 
-<div class="math-box">
-
 $$
 \boxed{a_{j}\sim \operatorname{Uniform} \left( \min_{x\in S}X_j(x), \max_{x\in S}X_j(x) \right)}
 $$
-
-</div>
 
 Unlike a conventional decision tree, the algorithm does **not exhaustively search every possible threshold** for that feature.
 
@@ -3259,13 +3063,9 @@ where $I(\cdot)$ is the regression impurity, typically based on squared error.
 
 From the randomly generated candidate splits $\Theta_S$, the selected split is:
 
-<div class="math-box">
-
 $$
 \boxed{\theta^* = \arg\max_{\theta\in\Theta_S} \Delta I(\theta)}
 $$
-
-</div>
 
 Thus, **randomness determines the candidate splits, while the splitting criterion determines which random candidate is retained**.
 
@@ -3289,13 +3089,9 @@ $$
 
 For regression, ExtraTrees combines the predictions of the individual trees by arithmetic averaging:
 
-<div class="math-box">
-
 $$
 \boxed{\hat f_{ET}(x) = \frac{1}{M} \sum_{m=1}^{M} T_m(x;\theta_m)}
 $$
-
-</div>
 
 where $\theta_m$ represents the randomized structure of tree $m$.
 
@@ -3430,13 +3226,9 @@ $$
 
 Gradient Boosting represents the prediction function as a sum of weak learners:
 
-<div class="math-box">
-
 $$
 \boxed{F_M(x) = F_0(x) + \sum_{m=1}^{M} \nu\gamma_mh_m(x)}
 $$
-
-</div>
 
 where each $h_m(x)$ is a regression tree added sequentially to improve the current prediction.
 
@@ -3461,13 +3253,9 @@ $$
 
 and the negative gradient becomes the ordinary residual:
 
-<div class="math-box">
-
 $$
 \boxed{r_{im} = y_i-F_{m-1}(x_i)}
 $$
-
-</div>
 
 Thus, for the squared-error case, the intuitive **"fit the residuals"** description is mathematically equivalent to fitting the negative gradient.
 
@@ -3475,25 +3263,17 @@ Thus, for the squared-error case, the intuitive **"fit the residuals"** descript
 
 At boosting iteration $m$, the pseudo-residual is:
 
-<div class="math-box">
-
 $$
 \boxed{r_{im} = - \left[ \frac{\partial L(y_i,F(x_i))} {\partial F(x_i)} \right]_ {F=F_{m-1}}}
 $$
-
-</div>
 
 A regression tree $h_m(x)$ is fitted to these pseudo-residuals.
 
 The optimal multiplier is then determined by:
 
-<div class="math-box">
-
 $$
 \boxed{\gamma_m = \arg\min_{\gamma} \sum_{i=1}^{n} L \left( y_i, F_{m-1}(x_i) + \gamma h_m(x_i) \right)}
 $$
-
-</div>
 
 ### Model Update
 
@@ -3515,13 +3295,9 @@ A smaller $\nu$ reduces the contribution of each tree and generally requires mor
 
 After $M$ boosting stages:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = F_0(x) + \sum_{m=1}^{M} \nu\gamma_mh_m(x)}
 $$
-
-</div>
 
 For squared-error regression, the initial function is commonly the training-target mean:
 
@@ -3633,13 +3409,9 @@ $$
 
 XGBoost represents the final prediction as an additive ensemble of $K$ regression trees:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_i = \sum_{k=1}^{K}f_k(x_i)}
 $$
-
-</div>
 
 where each $f_k$ is a regression tree added during a boosting iteration.
 
@@ -3657,23 +3429,15 @@ $$
 
 At iteration $t$, XGBoost minimizes:
 
-<div class="math-box">
-
 $$
 \boxed{\mathcal L^{(t)} = \sum_{i=1}^{n} l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right) + \Omega(f_t)}
 $$
 
-</div>
-
 where the tree-complexity penalty is:
-
-<div class="math-box">
 
 $$
 \boxed{\Omega(f_t) = \gamma T + \frac12\lambda \sum_{j=1}^{T}w_j^2}
 $$
-
-</div>
 
 Here, $T$ is the number of leaves and $w_j$ is the weight assigned to leaf $j$.
 
@@ -3681,13 +3445,9 @@ Here, $T$ is the number of leaves and $w_j$ is the weight assigned to leaf $j$.
 
 To make the optimization tractable, XGBoost approximates the objective around the current prediction:
 
-<div class="math-box">
-
 $$
 \boxed{\mathcal L^{(t)} \approx \sum_{i=1}^{n} \left[ g_i f_t(x_i) + \frac12 h_i f_t^2(x_i) \right] + \Omega(f_t)}
 $$
-
-</div>
 
 where:
 
@@ -3725,13 +3485,9 @@ where $I_j$ is the set of observations assigned to leaf $j$.
 
 Ignoring the $L_1$ term for the basic formulation, the optimal leaf weight is:
 
-<div class="math-box">
-
 $$
 \boxed{w_j^* = -\frac{G_j}{H_j+\lambda}}
 $$
-
-</div>
 
 This equation shows how the gradient, Hessian, and $L_2$ regularization jointly determine the optimal prediction contribution of a leaf.
 
@@ -3739,13 +3495,9 @@ This equation shows how the gradient, Hessian, and $L_2$ regularization jointly 
 
 For a candidate split dividing a parent node into left and right children, the regularized improvement can be expressed as:
 
-<div class="math-box">
-
 $$
 \boxed{Gain = \frac12 \left[ \frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G^2}{H+\lambda} \right] -\gamma}
 $$
-
-</div>
 
 A split is useful only when its gain is sufficiently positive. Therefore, $\gamma$ directly controls whether an additional split is justified by its improvement in the objective.
 
@@ -3753,13 +3505,9 @@ A split is useful only when its gain is sufficiently positive. Therefore, $\gamm
 
 After $K$ boosting iterations:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \sum_{k=1}^{K}f_k(x)}
 $$
-
-</div>
 
 The contribution of each tree is controlled during boosting by the learning rate/shrinkage parameter.
 
@@ -3859,23 +3607,15 @@ $$
 
 LightGBM follows the gradient-boosting framework. At iteration $t$, a new tree $f_t(x)$ is added to the current prediction:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_i^{(t)} = \hat y_i^{(t-1)} + f_t(x_i)}
 $$
 
-</div>
-
 The corresponding objective is:
-
-<div class="math-box">
 
 $$
 \boxed{\mathcal L^{(t)} = \sum_{i=1}^{n} l\left(y_i,\hat y_i^{(t-1)}+f_t(x_i)\right) + \Omega(f_t)}
 $$
-
-</div>
 
 Thus, LightGBM is not a fundamentally different boosting objective from GBM; its major contributions are **efficient tree construction and data-handling strategies**.
 
@@ -3903,25 +3643,17 @@ $$
 
 A regularized optimal leaf weight can be written as:
 
-<div class="math-box">
-
 $$
 \boxed{w_j^* = -\frac{G_j}{H_j+\lambda}}
 $$
-
-</div>
 
 ### Leaf-Wise Split Selection
 
 For a candidate split that divides leaf $j$ into left and right leaves, the split is evaluated using its improvement in the regularized objective.
 
-<div class="math-box">
-
 $$
 \boxed{Gain = \frac12 \left[ \frac{G_L^2}{H_L+\lambda} + \frac{G_R^2}{H_R+\lambda} - \frac{G_j^2}{H_j+\lambda} \right] -\gamma}
 $$
-
-</div>
 
 The **best-first strategy** selects the currently available leaf whose best candidate split has the largest positive gain.
 
@@ -3980,13 +3712,9 @@ This reduces the effective number of features considered during histogram constr
 
 After $T$ boosting iterations, the prediction is the sum of the contributions from all trees:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y(x) = \hat y_0 + \sum_{t=1}^{T}\eta\,f_t(x)}
 $$
-
-</div>
 
 where $\eta$ is the learning rate and $\hat y_0$ represents the initial prediction when applicable.
 
@@ -4101,8 +3829,6 @@ $$
 
 Each hidden layer performs an affine transformation followed by an activation:
 
-<div class="math-box">
-
 $$
 \boxed{Z^{[l]} = W^{[l]}A^{[l-1]}+b^{[l]}}
 $$
@@ -4111,29 +3837,19 @@ $$
 \boxed{A^{[l]} = \sigma\left(Z^{[l]}\right)}
 $$
 
-</div>
-
 For ReLU activation:
-
-<div class="math-box">
 
 $$
 \boxed{\sigma(z) = \max(0,z)}
 $$
 
-</div>
-
 ### Learning Criterion / Objective
 
 For thermal-conductivity regression, the network parameters can be trained by minimizing the Mean Squared Error:
 
-<div class="math-box">
-
 $$
 \boxed{\mathcal L(W,b) = \frac{1}{N} \sum_{i=1}^{N} \left( y_i-\hat y_i \right)^2}
 $$
-
-</div>
 
 where $y_i$ is the experimental thermal conductivity and $\hat y_i$ is the network prediction.
 
@@ -4175,13 +3891,9 @@ $$
 
 Backpropagation computes the derivatives of the loss with respect to the network parameters using the **chain rule**:
 
-<div class="math-box">
-
 $$
 \boxed{\frac{\partial\mathcal L} {\partial W^{[l]}} = \frac{\partial\mathcal L} {\partial Z^{[l]}} \frac{\partial Z^{[l]}} {\partial W^{[l]}}}
 $$
-
-</div>
 
 For ReLU:
 
@@ -4200,8 +3912,6 @@ The error signal is propagated from the output layer toward the input layers, al
 
 For basic gradient descent:
 
-<div class="math-box">
-
 $$
 \boxed{W^{[l]} \leftarrow W^{[l]} - \eta \frac{\partial\mathcal L} {\partial W^{[l]}}}
 $$
@@ -4210,21 +3920,15 @@ $$
 \boxed{b^{[l]} \leftarrow b^{[l]} - \eta \frac{\partial\mathcal L} {\partial b^{[l]}}}
 $$
 
-</div>
-
 When Adam is used, these raw gradients are transformed using adaptive first- and second-moment estimates before updating the parameters.
 
 ### Final Prediction Equation
 
 For a regression MLP, the final output layer is typically linear:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y = W^{[L]}A^{[L-1]}+b^{[L]}}
 $$
-
-</div>
 
 Combining all layers gives a nested nonlinear function:
 
@@ -4339,8 +4043,6 @@ For **AdaBoost.R2 regression**, the algorithm uses a normalized prediction-error
 
 For learner $m$, define the normalized error of observation $i$ as:
 
-<div class="math-box">
-
 $$
 e_i^{(m)}
 =
@@ -4350,8 +4052,6 @@ e_i^{(m)}
 \max_j |y_j-\hat y_j^{(m)}|
 }
 $$
-
-</div>
 
 Thus:
 
@@ -4365,33 +4065,21 @@ A value close to $0$ indicates a well-predicted observation, while a value close
 
 The weighted error of learner $m$ is calculated as:
 
-<div class="math-box">
-
 $$
 \boxed{\epsilon_m = \frac{ \sum_{i=1}^{N} w_i^{(m)}e_i^{(m)} }{ \sum_{i=1}^{N}w_i^{(m)} }}
 $$
 
-</div>
-
 The learner's performance determines its influence on the subsequent weighting:
-
-<div class="math-box">
 
 $$
 \boxed{\beta_m = \frac{\epsilon_m}{1-\epsilon_m}}
 $$
 
-</div>
-
 For the standard AdaBoost.R2 formulation, the sample weights are then updated according to:
-
-<div class="math-box">
 
 $$
 \boxed{w_i^{(m+1)} = w_i^{(m)} \beta_m^{\,1-e_i^{(m)}}}
 $$
-
-</div>
 
 When $\epsilon_m<0.5$, $\beta_m<1$. Consequently, observations with **larger errors** ($e_i\rightarrow1$) receive relatively greater weight in the next iteration.
 
@@ -4401,13 +4089,9 @@ This is the key distinction from the binary-classification AdaBoost equations: *
 
 A common AdaBoost.R2 formulation assigns the learner an ensemble weight related to its weighted error:
 
-<div class="math-box">
-
 $$
 \boxed{\alpha_m = \ln\left(\frac{1}{\beta_m}\right) = \ln\left(\frac{1-\epsilon_m}{\epsilon_m}\right)}
 $$
-
-</div>
 
 A learner with lower weighted error therefore receives greater influence in the final ensemble.
 
@@ -4417,13 +4101,9 @@ Unlike classification AdaBoost, which commonly uses a weighted sign vote, **AdaB
 
 A generic weighted-aggregation representation is:
 
-<div class="math-box">
-
 $$
 \boxed{\hat f(x) = \operatorname{WeightedAggregate} \left( f_1(x),f_2(x),\ldots,f_M(x); \alpha_1,\alpha_2,\ldots,\alpha_M \right)}
 $$
-
-</div>
 
 For the standard AdaBoost.R2 formulation:
 
@@ -4535,13 +4215,9 @@ Instead of directly averaging their outputs, stacking constructs a new feature s
 
 For training observation $x_i$, its meta-feature vector is:
 
-<div class="math-box">
-
 $$
 \boxed{Z_i= \left[ f_1^{-k}(x_i), f_2^{-k}(x_i), \ldots, f_m^{-k}(x_i) \right]}
 $$
-
-</div>
 
 where $x_i$ belongs to validation fold $k$ and $f_j^{-k}$ denotes the $j$-th base learner trained **without fold $k$**.
 
@@ -4551,13 +4227,9 @@ Consequently, every training observation receives a prediction from a model that
 
 After generating OOF predictions for every observation:
 
-<div class="math-box">
-
 $$
 \boxed{Z= \begin{bmatrix} f_1^{-k_1}(x_1)&\cdots&f_m^{-k_1}(x_1)\\ f_1^{-k_2}(x_2)&\cdots&f_m^{-k_2}(x_2)\\ \vdots&\ddots&\vdots\\ f_1^{-k_N}(x_N)&\cdots&f_m^{-k_N}(x_N) \end{bmatrix}}
 $$
-
-</div>
 
 Thus, the original feature matrix
 
@@ -4577,23 +4249,15 @@ The meta-learner therefore learns from **model outputs rather than directly from
 
 The Level-1 learner $h$ minimizes prediction error between the meta-predictions and the true targets:
 
-<div class="math-box">
-
 $$
 \boxed{\min_h \sum_{i=1}^{N} L\left(y_i,h(Z_i)\right)}
 $$
 
-</div>
-
 For a linear meta-learner:
-
-<div class="math-box">
 
 $$
 \boxed{\min_{\beta,b} \sum_{i=1}^{N} \left( y_i-\beta^T Z_i-b \right)^2}
 $$
-
-</div>
 
 The coefficients $\beta$ determine how the meta-learner combines the base-model predictions.
 
@@ -4622,23 +4286,15 @@ $$
 
 The trained meta-learner then produces:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y = h\left( f_1(x), f_2(x), \ldots, f_m(x) \right)}
 $$
 
-</div>
-
 For a linear meta-learner:
-
-<div class="math-box">
 
 $$
 \boxed{\hat y = \beta_0+ \sum_{j=1}^{m} \beta_jf_j(x)}
 $$
-
-</div>
 
 Thus, unlike simple averaging,
 
@@ -4783,13 +4439,9 @@ $$
 
 For an ensemble containing $M$ base regressors, uniform Voting Regression calculates:
 
-<div class="math-box">
-
 $$
 \boxed{\hat y_{ensemble} = \frac{1}{M} \sum_{m=1}^{M} \hat y_m}
 $$
-
-</div>
 
 where $\hat y_m$ is the prediction of base model $m$.
 
@@ -4821,13 +4473,9 @@ $$
 
 Then the ensemble error is:
 
-<div class="math-box">
-
 $$
 \boxed{e_{ens} = \frac{1}{M} \sum_{m=1}^{M}e_m}
 $$
-
-</div>
 
 Therefore:
 
@@ -4853,8 +4501,6 @@ If their errors are less correlated, averaging can reduce the variability of the
 
 For two models:
 
-<div class="math-box">
-
 $$
 \operatorname{Var}(e_{ens})
 =
@@ -4867,8 +4513,6 @@ $$
 2\operatorname{Cov}(e_A,e_B)
 \right]
 $$
-
-</div>
 
 Therefore:
 
